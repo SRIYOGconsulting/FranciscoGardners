@@ -24,12 +24,13 @@ export default function Certificate() {
         };
     }, [lightbox]);
     const certificates = [
-        { title: 'Certificate 1', img: '/certificates/1.jpg' },
-        { title: 'Certificate 2', img: '/certificates/2.jpg' },
-        { title: 'Certificate 3', img: '/certificates/3.jpg' },
-        { title: 'Certificate 4', img: '/certificates/4.jpg' },
-        { title: 'Certificate 5', img: '/certificates/5.jpg' },
-        { title: 'Certificate 6', img: '/certificates/6.jpg' },
+        { title: 'Lawn Care', img: '/certificates/1.jpg',description:'Keep your lawn vibrant, lush, advanced and eco-friendly year-round with modern lawn care services. ' },
+        { title: 'Turf Removal', img: '/certificates/2.jpg',description:'Remove outdated, thirsty, or degraded lawns cleanly and sustainably to pave the way for modern landscapes' },
+        { title: 'Commercial Turf Installation', img: '/certificates/3.jpg',description:'Upgrade corporate campuses, multi-family housing, and commercial properties with durable turf solutions.' },
+        { title: 'Commercial Garden Management', img: '/certificates/4.jpg',description:'Maintain and enhance commercial garden spaces and outdoor with professional landscaping services.' },
+        { title: 'Gutter Cleaning', img: '/certificates/5.jpg',description:'Protect your property from water damage, roof overflow, and garden erosion with thorough, safe gutter cleaning services.' },
+        { title: 'Planting & Transplanting', img: '/certificates/6.jpg',description:'Establish healthy trees, native shrubs, and ornamental beds year-round with shock-free planting and expert relocation techniques.' },
+
     ];
 
     return (
@@ -46,13 +47,14 @@ export default function Certificate() {
                             <Image height={600} width={800}
                                 src={cert.img}
                                 alt={cert.title}
+                               
                                 onClick={()=>{setLightbox(true);setIndex(index)}}
                                 className="w-full h-56 object-cover cursor-pointer"
                             />
                             <div className="px-4 py-5 card2">
                                 <h2 className="text-lg font-medium ">{cert.title}</h2>
                                 <p className="card2 text-sm mt-2">
-                                    Short description about the certificate.
+                                   {cert.description || 'No description available.'}
                                 </p>
                             </div>
                         </div>

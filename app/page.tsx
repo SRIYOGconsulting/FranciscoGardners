@@ -11,7 +11,7 @@ export default function Home() {
         {/* Desktop background */}
         <div className="hidden sm:block absolute inset-0 -z-10">
           <Image
-            src="/home/hero/1.jpg"
+            src="/home/hero/4.jpg"
             alt=""
             fill
             className="object-cover"
@@ -25,7 +25,7 @@ export default function Home() {
           <div className="relative block sm:hidden w-full h-[300px]">
             <Image
               src="/home/hero/1.jpg"
-              alt="SRIYOG Consulting"
+              alt="Professional Gardening Services in San Francisco"
               fill
               className="object-cover"
               sizes="(max-width: 639px) 100vw, 50vw"
@@ -34,16 +34,15 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col justify-start text-left z-10 w-full sm:w-1/2 mt-4 px-6 sm:mt-0">
-            <div className="text-[23px] md:text-2xl font-semibold mb-3 opacity-90">
-              Welcome to
-            </div>
+          
+            <div className="font-bold text-3xl md:text-5xl mb-6 ">
+            Francisco Gardeners
 
-            <div className="font-bold text-3xl md:text-5xl mb-6">
-              SRIYOG Consulting
             </div>
 
             <h1 className="text-[18px] max-w-[600px] leading-relaxed opacity-95">
-              Professional consulting in Kathmandu, Nepal.
+              Professional Gardening Services in San Francisco
+
             </h1>
 
             <div className="mt-8 flex gap-4">

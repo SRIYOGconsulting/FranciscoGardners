@@ -24,38 +24,40 @@ const About = ()=> {
                         </div>
                     {/* Left side - Text content */}
                     <div className="md:w-2/3 space-y-4 md:space-y-6 leading-relaxed ">
+                    <p className="text-[23px] md:text-2xl font-semibold mb-3 opacity-90"    >
+                        About Us    
+                    </p>
                         <p className="content-text ">
-                            Established on June 14, 2018, SRIYOG Consulting Pvt. Ltd., based in Kamalpokhari,
-                            Kathmandu, Nepal, is a leading provider of digital solutions dedicated to driving
-                            digital transformation in the healthcare, employment, and tourism sectors. Our mission
-                            is to empower organizations in these vital industries with innovative, scalable, technology-driven
-                            services that enhance operational efficiency and support long-term growth.
+                          Welcome to Francisco Gardeners, your premier local provider of eco-conscious 
+                          lawn care, sod replacement, and complete garden management.
+                           We were founded on a simple mission: to transform Bay Area outdoor spaces into lush,
+                            sustainable, and peaceful sanctuaries while setting a high standard for environmental responsibility.
+
                         </p>
 
                         <p className="content-text ">
-                            At SRIYOG Consulting, we believe that smart technology is key to addressing sector-specific challenges.
-                            Our diverse IT services include data processing, software and web application development, digital
-                            marketing, database management, business process automation, and expert IT consultancy—each tailored
-                            to the unique needs of agriculture, employment platforms, and tourism operations.
+                           Whether caring for a classic Victorian garden in Pacific Heights,
+                            a rooftop terrace in SoMa, or a family lawn in the Sunset District, 
+                            Francisco Gardeners brings deep horticultural knowledge and international 
+                            best practices right to your doorstep.
+
                         </p>
 
                        
 
                         <p className="content-text">
-                            By optimizing digital infrastructure, we help our clients streamline services, engage users effectively,
-                            and scale sustainably. We specialize in crafting robust, user-friendly web solutions with a focus on
-                            modern UI/UX design, full-stack development, and industry-specific platforms—whether for agritech,
-                            job-matching portals, or tourism management systems.
+                           San Francisco is home to some of the world's most unique microclimates—ranging from coastal fog and wind in the west to sunlit hills in the east—alongside heavy urban clay soils and strict California water conservation guidelines.
+
                         </p>
 
                         <p className="content-text ">
-                            Our offerings include e-commerce platforms, CMS, SaaS-based solutions, and Progressive Web Applications
-                            (PWAs) designed for mobile-first experiences with offline functionality.
+                            At FranciscoGardeners, we recognized that traditional lawn care, with noisy gas equipment and heavy synthetic fertilizers, wasn't built for modern urban living or long-term soil health.
+
                         </p>
 
                         <p className="content-text ">
-                            Our comprehensive IT services are tailored to the unique demands of healthcare, employment platforms,
-                            and tourism operations.
+                            That’s why our team reimagined garden care by combining cutting-edge global landscaping methodologies—such as organic bio-restoration, mycorrhizal root enrichment, and smart micro-drip systems—with local Bay Area environmental compliance.
+
                         </p>
                     </div>
 
