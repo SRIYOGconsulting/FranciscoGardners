@@ -29,7 +29,14 @@ export default function Certificate() {
         { title: 'Commercial Turf Installation', img: '/certificates/3.jpg',description:'Upgrade corporate campuses, multi-family housing, and commercial properties with durable turf solutions.' },
         { title: 'Commercial Garden Management', img: '/certificates/4.jpg',description:'Maintain and enhance commercial garden spaces and outdoor with professional landscaping services.' },
         { title: 'Gutter Cleaning', img: '/certificates/5.jpg',description:'Protect your property from water damage, roof overflow, and garden erosion with thorough, safe gutter cleaning services.' },
-        { title: 'Planting & Transplanting', img: '/certificates/6.jpg',description:'Establish healthy trees, native shrubs, and ornamental beds year-round with shock-free planting and expert relocation techniques.' },
+        { title: 'Garden Maintenance', img: '/certificates/6.jpg',description:'Keep your residential or commercial garden vibrant, pristine, and structurally healthy across every season of the year.' },
+        { title: 'Soil Improvement & Fertilization', img: '/certificates/6.jpg',description:'Enhance soil fertility, break down heavy urban clay, and boost natural moisture retention of soil' },
+        { title: 'Irrigation Services', img: '/certificates/6.jpg',description:'Keep your landscape thriving while conserving water through smart automated systems and irrigation services' },
+        { title: 'Pest, Disease & Weed Control', img: '/certificates/6.jpg',description:'Protect your garden, lawn, and trees from common Bay Area pests and diseases with professional, non-toxic, preventive plant care.' },
+        { title: 'Hardscaping', img: '/certificates/6.jpg',description:'Design and build durable, aesthetically stunning outdoor structures, stone pathways, and retaining walls tailored to San Francisco’s hilly terrain and coastal climate.' },
+        { title: 'Landscape Design', img: '/certificates/6.jpg',description:'Transform your outdoor vision into a sustainable, microclimate-tailored reality with custom 2D/3D master plans and native planting layouts.' },
+        { title: 'Seasonal Gardening Services', img: '/certificates/6.jpg',description:'' },
+        { title: 'Seasonal Gardening Services', img: '/certificates/6.jpg',description:'' },
 
     ];
 
