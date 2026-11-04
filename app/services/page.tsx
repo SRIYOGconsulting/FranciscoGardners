@@ -23,7 +23,7 @@ export default function Certificate() {
         };
     }, [lightbox]);
 
-    // 2. Helper function to turn titles into clean slugs (e.g. "Lawn Care" -> "lawn-care")
+    // itturn titles into clean slugs
     const createSlug = (title: string) => 
         title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
 
@@ -99,7 +99,7 @@ export default function Certificate() {
                                        {cert.description || 'No description available.'}
                                     </p>
                                     
-                                    {/* 3. Replaced button with Next.js Link pointing to dynamic route */}
+                                    
                                     <Link 
                                         href={`/services/${slug}`}
                                         className="inline-block mt-4 px-4 py-2 bg-green-600 text-white rounded text-sm font-medium hover:bg-green-700 transition"
