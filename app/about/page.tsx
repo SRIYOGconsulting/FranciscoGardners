@@ -1,6 +1,6 @@
 'use client'
 import ClapFunction from '../../components/ClappingFunction';
-// import Ribbon from '../../components/Ribbon';
+
 import Image from 'next/image';
 
 const About = ()=> {

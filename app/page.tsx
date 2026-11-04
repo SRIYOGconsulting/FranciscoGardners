@@ -35,12 +35,12 @@ export default function Home() {
 
           <div className="flex flex-col justify-start text-left z-10 w-full sm:w-1/2 mt-4 px-6 sm:mt-0">
           
-            <div className="font-bold text-3xl md:text-5xl mb-6 ">
+            <div className="font-bold text-3xl text-white md:text-5xl mb-6 ">
             Francisco Gardeners
 
             </div>
 
-            <h1 className="text-[18px] max-w-[600px] leading-relaxed opacity-95">
+            <h1 className="text-[18px] max-w-[600px] text-white leading-relaxed opacity-95">
               Professional Gardening Services in San Francisco
 
             </h1>
