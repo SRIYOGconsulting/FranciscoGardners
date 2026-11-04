@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 
 const certificates = [
   { title: 'Lawn Care', img: '/certificates/1.jpg', description: 'Keep your lawn vibrant, lush, advanced and eco-friendly year-round with modern lawn care services in San Francisco.' },
-  { title: 'Turf Installation', img: '/certificates/2.jpg', description: 'Transform yards with drought-resistant, low-maintenance turf installation designed for San Francisco microclimates.' },
+  { title: 'Turf Removal', img: '/certificates/2.jpg', description: 'Transform yards with drought-resistant, low-maintenance turf installation designed for San Francisco microclimates.' },
   { title: 'Commercial Turf Installation', img: '/certificates/3.jpg', description: 'Upgrade corporate campuses, multi-family housing, and commercial properties across San Francisco with durable turf solutions.' },
   { title: 'Commercial Garden Management', img: '/certificates/4.jpg', description: 'Maintain and enhance commercial garden spaces and outdoors across the Bay Area with professional landscaping services.' },
   { title: 'Gutter Cleaning', img: '/certificates/5.jpg', description: 'Protect your San Francisco home from winter rain overflow, water damage, and roof runoff with safe gutter cleaning.' },
@@ -116,7 +116,7 @@ export default async function ServicePage({ params }: PageProps) {
           {/* Breadcrumb Navigation */}
           <nav className="text-xs sm:text-sm font-medium text-emerald-200 space-x-2">
             <Link href="/" className="hover:underline">Home</Link>
-            <span>&gt;</span>
+            <span>&gt;</span>      {/* &gt; is used for the > sign */}                                                   
             <Link href="/services" className="hover:underline">Services</Link>
             <span>&gt;</span>
             <span className="text-white font-normal">{service.title}</span>
@@ -127,7 +127,7 @@ export default async function ServicePage({ params }: PageProps) {
             {service.title} Services in San Francisco
           </h1>
 
-          {/* Subtitle Description */}
+          /* Subtitle Description given */
           <p className="text-base sm:text-lg text-emerald-100 max-w-2xl mx-auto leading-relaxed">
             {service.description}
           </p>
@@ -153,7 +153,7 @@ export default async function ServicePage({ params }: PageProps) {
         </p>
       </section>
 
-      {/* 3. RELATED SERVICES SECTION */}
+     { /* 3. RELATED SERVICES SECTION */}
       <section className="bg-gray-50 py-16 px-6">
         <div className="max-w-6xl mx-auto text-center space-y-12">
           <h2 className="text-2xl sm:text-3xl font-bold text-teal-900">

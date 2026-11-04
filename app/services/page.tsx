@@ -2,10 +2,9 @@
 import { useEffect, useState } from 'react';
 import Lightbox from '../../components/Lightbox';
 import Image from 'next/image';
-import Link from 'next/link'; // 1. Import Link
+import Link from 'next/link';
 
 export default function Certificate() {
-    
     const [lightbox, setLightbox] = useState(false);
     const [index, setIndex] = useState<number | null>(0);
 
@@ -23,19 +22,19 @@ export default function Certificate() {
         };
     }, [lightbox]);
 
-    // itturn titles into clean slugs
+    // Turn titles into clean slugs
     const createSlug = (title: string) => 
         title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
 
     const certificates = [
-        { title: 'Lawn Care', img: '/certificates/1.jpg', description: 'Keep your lawn vibrant, lush, advanced and eco-friendly year-round with modern lawn care services. ' },
-        { title: 'Turf Removal', img: '/certificates/2.jpg', description: 'Remove outdated, thirsty, or degraded lawns cleanly and sustainably to pave the way for modern landscapes' },
+        { title: 'Lawn Care', img: '/certificates/1.jpg', description: 'Professional lawn maintenance including mowing, edging, fertilizing, and regular upkeep to keep your grass healthy and green year-round.' },
+        { title: 'Turf Removal', img: '/certificates/2.jpg', description: 'Remove outdated, thirsty, or degraded lawns cleanly and sustainably to pave the way for modern landscapes.' },
         { title: 'Commercial Turf Installation', img: '/certificates/3.jpg', description: 'Upgrade corporate campuses, multi-family housing, and commercial properties with durable turf solutions.' },
         { title: 'Commercial Garden Management', img: '/certificates/4.jpg', description: 'Maintain and enhance commercial garden spaces and outdoor with professional landscaping services.' },
         { title: 'Gutter Cleaning', img: '/certificates/5.jpg', description: 'Protect your property from water damage, roof overflow, and garden erosion with thorough, safe gutter cleaning services.' },
-        { title: 'Garden Maintenance', img: '/certificates/6.jpg', description: 'Keep your residential or commercial garden vibrant, pristine, and structurally healthy across every season of the year.' },
-        { title: 'Soil Improvement & Fertilization', img: '/certificates/6.jpg', description: 'Enhance soil fertility, break down heavy urban clay, and boost natural moisture retention of soil' },
-        { title: 'Irrigation Services', img: '/certificates/6.jpg', description: 'Keep your landscape thriving while conserving water through smart automated systems and irrigation services' },
+        { title: 'Garden Maintenance', img: '/certificates/6.jpg', description: 'Comprehensive garden care including weeding, pruning, mulching, and seasonal maintenance to keep your garden flourishing throughout the year.' },
+        { title: 'Soil Improvement & Fertilization', img: '/certificates/6.jpg', description: 'Enhance soil fertility, break down heavy urban clay, and boost natural moisture retention of soil.' },
+        { title: 'Irrigation Services', img: '/certificates/6.jpg', description: 'Keep your landscape thriving while conserving water through smart automated systems and irrigation services.' },
         { title: 'Pest, Disease & Weed Control', img: '/certificates/6.jpg', description: 'Protect your garden, lawn, and trees from common Bay Area pests and diseases with professional, non-toxic, preventive plant care.' },
         { title: 'Hardscaping', img: '/certificates/6.jpg', description: 'Design and build durable, aesthetically stunning outdoor structures, stone pathways, and retaining walls tailored to San Francisco’s hilly terrain and coastal climate.' },
         { title: 'Landscape Design', img: '/certificates/6.jpg', description: 'Transform your outdoor vision into a sustainable, microclimate-tailored reality with custom 2D/3D master plans and native planting layouts.' },
@@ -79,33 +78,44 @@ export default function Certificate() {
             <div className="px-5 py-10 max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
                     {certificates.map((cert, index) => {
-                        const slug = createSlug(cert.title); // Generate slug for each item
+                        const slug = createSlug(cert.title);
                         return (
                             <div
                                 key={index}
-                                className="card rounded-lg shadow-md overflow-hidden w-full max-w-xs hover:shadow-lg transition-shadow duration-300"
+                                className="bg-white rounded-2xl border border-teal-900/20 shadow-md overflow-hidden w-full max-w-sm flex flex-col justify-between hover:shadow-xl transition-all duration-300"
                             >
-                                <Image 
-                                    height={600} 
-                                    width={800}
-                                    src={cert.img}
-                                    alt={cert.title}
-                                    onClick={() => { setLightbox(true); setIndex(index); }}
-                                    className="w-full h-56 object-cover cursor-pointer"
-                                />
-                                <div className="px-4 py-5 card2">
-                                    <h2 className="text-lg font-medium">{cert.title}</h2>
-                                    <p className="card2 text-sm mt-2">
-                                       {cert.description || 'No description available.'}
-                                    </p>
+                                {/* Image Container with Curved Bottom Wave */}
+                                <div className="relative w-full h-64 overflow-hidden">
+                                    <Image 
+                                        height={600} 
+                                        width={800}
+                                        src={cert.img}
+                                        alt={cert.title}
+                                        onClick={() => { setLightbox(true); setIndex(index); }}
+                                        className="w-full h-full object-cover cursor-pointer hover:scale-105 transition-transform duration-500"
+                                    />
+                                    {/* Curved White Wave Mask Overlays Bottom of Image */}
+                                    <div className="absolute bottom-0 inset-x-0 h-8 bg-white [clip-path:ellipse(60%_100%_at_50%_100%)]"></div>
+                                </div>
+
+                                {/* Content Section */}
+                                <div className="px-6 pb-6 pt-2 text-center flex flex-col flex-grow justify-between">
+                                    <div>
+                                        <h2 className="text-xl font-bold text-gray-900 mb-2">{cert.title}</h2>
+                                        <p className="text-sm text-gray-600 leading-relaxed mb-6">
+                                            {cert.description || 'No description available.'}
+                                        </p>
+                                    </div>
                                     
-                                    
-                                    <Link 
-                                        href={`/services/${slug}`}
-                                        className="inline-block mt-4 px-4 py-2 bg-green-600 text-white rounded text-sm font-medium hover:bg-green-700 transition"
-                                    >
-                                        Browse
-                                    </Link>
+                                    {/* Teal-to-Emerald Gradient Browse More Button */}
+                                    <div className="flex justify-center">
+                                        <Link 
+                                            href={`/services/${slug}`}
+                                            className="inline-block px-6 py-2.5 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white rounded-lg text-sm font-semibold shadow-md transition-all duration-300 transform hover:-translate-y-0.5"
+                                        >
+                                            Browse More
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         );
