@@ -127,7 +127,7 @@ export default async function ServicePage({ params }: PageProps) {
             {service.title} Services in San Francisco
           </h1>
 
-          /* Subtitle Description given */
+          {/* Subtitle Description given */}
           <p className="text-base sm:text-lg text-emerald-100 max-w-2xl mx-auto leading-relaxed">
             {service.description}
           </p>
