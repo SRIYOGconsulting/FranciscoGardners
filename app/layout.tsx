@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SRIYOG Consulting",
+  title: "Francisco Gardeners",
   description: "Next Js Boilerplate",
 };
 

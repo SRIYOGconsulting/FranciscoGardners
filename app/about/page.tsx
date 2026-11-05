@@ -18,10 +18,9 @@ const About = () => {
             About Us
           </h1>
           <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed text-base md:text-lg pt-2">
-            We believe every home and workspace deserves a beautiful green space. Garden Sansar provides 
-            professional gardening and landscaping services in Nepal. Our mission is to bring plants, people, and nature 
-            together by creating healthy, well-maintained gardens that add beauty, relaxation, and sustainability to 
-            everyday life.
+           We believe every home and workspace deserves a beautiful green space.
+            Francisco Gardeners provides professional gardening and landscaping services in San Francisco.
+             Our mission is to bring plants, people, and nature together by creating healthy, well-maintained gardens that add beauty, relaxation, and sustainability to everyday life
           </p>
         </div>
       </section>
@@ -31,7 +30,7 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#0f3822] leading-snug">
-              Best Garden Maintenance <br /> Services in San Francisco Area
+              Professional Gardening  <br /> Services in San Francisco 
             </h2>
             
             <p className="text-gray-600 leading-relaxed text-base">
