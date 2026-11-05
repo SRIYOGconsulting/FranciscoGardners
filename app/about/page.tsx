@@ -42,7 +42,7 @@ const About = () => {
 
             <div className="bg-emerald-50/60 p-6 rounded-2xl grid grid-cols-3 gap-4 text-left">
               <div>
-                <span className="block text-2xl md:text-3xl font-extrabold text-slate-900">25+</span>
+                <span className="block text-2xl md:text-3xl font-extrabold text-slate-900">8+</span>
                 <span className="text-xs md:text-sm text-gray-600 font-medium">Years of Experience</span>
               </div>
               <div>
