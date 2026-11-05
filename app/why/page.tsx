@@ -19,11 +19,11 @@ export default function WhyUs () {
                     </div>
 
                     <Image 
-                        height={600} 
-                        width={800}
-                        src="/why/1.jpg" 
+                        height={10} 
+                        width={200}
+                        src="/why/neatlawn.jpg" 
                         alt="Expert Landscaping" 
-                        className="w-full max-w-sm md:max-w-[450px] rounded-2xl object-cover shadow-sm"
+                        className="w-full max-w-sm md:max-w-[350px] rounded-2xl  shadow-sm"
                     />
                 </div>
 
@@ -41,9 +41,9 @@ export default function WhyUs () {
                     <Image 
                         height={600} 
                         width={800}
-                        src="/why/2.jpg" 
+                        src="/why/worker.jpg" 
                         alt="Verified Garden Experts" 
-                        className="w-full max-w-sm md:max-w-[450px] rounded-2xl object-cover shadow-sm"
+                        className="w-full max-w-sm md:max-w-[350px] rounded-2xl object-cover shadow-sm"
                     />
                 </div>
 
@@ -61,9 +61,9 @@ export default function WhyUs () {
                     <Image 
                         height={600} 
                         width={800}
-                        src="/why/3.jpg" 
+                        src="/why/mower.jpg" 
                         alt="Sustainable Eco-Friendly Gardening" 
-                        className="w-full max-w-sm md:max-w-[450px] rounded-2xl object-cover shadow-sm"
+                        className="w-full max-w-sm md:max-w-[350px] rounded-2xl object-cover shadow-sm"
                     />
                 </div>
 
@@ -81,9 +81,9 @@ export default function WhyUs () {
                     <Image 
                         height={600} 
                         width={800}
-                        src="/why/4.jpg" 
+                        src="/why/frontyard.jpg" 
                         alt="Reliable Lawn Care" 
-                        className="w-full max-w-sm md:max-w-[450px] rounded-2xl object-cover shadow-sm"
+                        className="w-full max-w-sm md:max-w-[350px] rounded-2xl object-cover shadow-sm"
                     />
                 </div>
 
