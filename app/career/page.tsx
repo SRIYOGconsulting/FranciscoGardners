@@ -2,7 +2,17 @@
 
 import React, { useState } from 'react';
 
-const jobOpenings = [
+// Added explicit TypeScript interface for Job Openings
+interface JobOpening {
+  id: number;
+  title: string;
+  type: string;
+  location: string;
+  department: string;
+  description: string;
+}
+
+const jobOpenings: JobOpening[] = [
   {
     id: 1,
     title: "Lead Landscape Architect",
@@ -45,10 +55,12 @@ const perks = [
 ];
 
 export default function CareerPage() {
-  const [selectedJob, setSelectedJob] = useState(null);
-  const [submitted, setSubmitted] = useState(false);
+  // Explicit state types
+  const [selectedJob, setSelectedJob] = useState<JobOpening | null>(null);
+  const [submitted, setSubmitted] = useState<boolean>(false);
 
-  const handleApply = (e) => {
+  // Added React.FormEvent type to fix the TypeScript build error
+  const handleApply = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitted(true);
     setTimeout(() => {
