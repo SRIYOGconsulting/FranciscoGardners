@@ -1,15 +1,15 @@
 'use client';
 
 const teamMembers = [
-  { id: 1, name: "James Walker", role: "Deep Cleaning Specialist", image: "/team/1.png" },
-  { id: 2, name: "Daniel Scott", role: "Roof & Gutter Cleaning Expert", image: "/team/2.png" },
-  { id: 3, name: "Robert Harris", role: "Handyman Technician", image: "/team/3.png" },
-  { id: 4, name: "Joseph Allen", role: "Licensed Plumber", image: "/team/4.png" },
-  { id: 5, name: "Jacob Collins", role: "Lawn Care Specialist", image: "/team/5.png" },
-  { id: 6, name: "Benjamin Stewart", role: "Tree Cutting Technician", image: "/team/6.png" },
-  { id: 7, name: "Christian Cook", role: "Outdoor Lighting Installer", image: "/team/7.png" },
-  { id: 8, name: "Eric Cooper", role: "Maintenance Plan Coordinator", image: "/team/8.png" },
-  { id: 9, name: "Adam Rivera", role: "Cleaning Plan Supervisor", image: "/team/9.png" }
+  { id: 1, name: "James Walker", role: "Deep Cleaning Specialist", image: "/team/1 (1).png" },
+  { id: 2, name: "Daniel Scott", role: "Roof & Gutter Cleaning Expert", image: "/team/2(1).png" },
+  { id: 3, name: "Robert Harris", role: "Handyman Technician", image: "/team/3(1).png" },
+  { id: 4, name: "Joseph Allen", role: "Licensed Plumber", image: "/team/4(1).png" },
+  { id: 5, name: "Jacob Collins", role: "Lawn Care Specialist", image: "/team/5(1).png" },
+  { id: 6, name: "Benjamin Stewart", role: "Tree Cutting Technician", image: "/team/6(1).png" },
+  { id: 7, name: "Christian Cook", role: "Outdoor Lighting Installer", image: "/team/7(1).png" },
+  { id: 8, name: "Eric Cooper", role: "Maintenance Plan Coordinator", image: "/team/8(1).png" },
+  { id: 9, name: "Adam Rivera", role: "Cleaning Plan Supervisor", image: "/team/10(1).png" }
 ];
 
 const OurTeam = () => {
@@ -35,7 +35,7 @@ const OurTeam = () => {
             <div className="flex-shrink-0">
               <div className="relative w-44 h-44 md:w-56 md:h-56 rounded-full overflow-hidden p-1 bg-white ring-4 ring-[#10B981] shadow-lg">
                 <img
-                  src="/team/1.png"
+                  src="/team/ceo1.jpg"
                   alt="Francisco Morales"
                   className="w-full h-full rounded-full object-cover"
                 />

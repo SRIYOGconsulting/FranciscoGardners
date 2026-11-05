@@ -30,16 +30,11 @@ const Footer = () => {
           </div>
 
           <p className="text-[15px] leading-relaxed  mb-4">
-            Established on June 14, 2018, SRIYOG Consulting Pvt. Ltd., based in
-            Kamalpokhari, Kathmandu, Nepal, is a leading provider of digital
-            solutions dedicated href driving digital transformation in the
-            healthcare, employment, and tourism sectors.
+           Established on June 14, 2018, Francisco Gardeners, based in San Francisco, California, is a leading provider of sustainable landscaping and gardening solutions dedicated to enhancing outdoor spaces across residential, commercial, and urban sectors.
           </p>
 
           <p className="text-[15px] leading-relaxed ">
-            Our mission is href empower organizations in these vital industries
-            with innovative, scalable, technology-driven services that enhance
-            operational efficiency and support long-term growth.
+           Our mission is to empower homes and businesses across the Bay Area with innovative, sustainable, nature-driven services that enhance outdoor beauty and support long-term green growth.
           </p>
         </div>
 
