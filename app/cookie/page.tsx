@@ -20,6 +20,7 @@ const CookiePolicy = () => {
           </p>
         </div>
 
+
         {/* CONTENT CARD */}
         <section className="bg-white border border-emerald-100 rounded-3xl p-8 md:p-12 shadow-sm space-y-8 text-gray-700">
           
