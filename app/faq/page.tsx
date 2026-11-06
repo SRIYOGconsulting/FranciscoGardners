@@ -1,217 +1,223 @@
-'use client'
+'use client';
+
 import React, { useState } from 'react';
-// import Ribbon from '../../components/Ribbon';
+
+interface FaqItem {
+  id: number;
+  question: string;
+  answer: string;
+}
 
 export default function Faq() {
+  const faqs: FaqItem[] = [
+    {
+      id: 1,
+      question: "When was Francisco Gardeners established?",
+      answer: "Francisco Gardeners was founded in 2018 to bring sustainable, eco-friendly landscaping to the San Francisco Bay Area.",
+    },
+    {
+      id: 2,
+      question: "Where is Francisco Gardeners located?",
+      answer: "We are headquartered in San Francisco, California, serving residential and commercial clients across the Bay Area.",
+    },
+    {
+      id: 3,
+      question: "What primary gardening services do you offer?",
+      answer: "We offer comprehensive lawn care, tree trimming, garden design, weed control, hedge pruning, drip irrigation, and seasonal maintenance.",
+    },
+    {
+      id: 4,
+      question: "Do you use eco-friendly and organic practices?",
+      answer: "Yes! We prioritize 100% organic soil treatments, zero-emission battery-powered tools, and drought-tolerant plant selections.",
+    },
+    {
+      id: 5,
+      question: "Who leads Francisco Gardeners?",
+      answer: "Francisco Morales, Founder and Head Landscape Architect, leads our experienced team of certified arborists and field specialists.",
+    },
+    {
+      id: 6,
+      question: "What makes Francisco Gardeners unique?",
+      answer: "Our focus on Bay Area microclimates, water-saving irrigation design, transparent scheduled plans, and quiet battery-powered machinery.",
+    },
+    {
+      id: 7,
+      question: "What is the difference between garden design and maintenance?",
+      answer: "Garden design involves planning and creating new outdoor layouts, while garden maintenance focuses on routine upkeep, soil health, and seasonal pruning.",
+    },
+    {
+      id: 8,
+      question: "What is included in routine garden maintenance?",
+      answer: "Our recurring service covers lawn mowing, edge trimming, leaf clearance, weed control, plant fertilization, and irrigation health checks.",
+    },
+    {
+      id: 9,
+      question: "Do you offer smart irrigation and drip system installations?",
+      answer: "Yes, we design and install water-efficient drip systems with smart timers customized for local Bay Area weather conditions.",
+    },
+    {
+      id: 10,
+      question: "Are your tree arborists certified and insured?",
+      answer: "Absolutely. Our tree technicians and arborists are fully licensed, insured, and trained in urban climbing safety and tree preservation.",
+    },
+    {
+      id: 11,
+      question: "What types of properties do you service?",
+      answer: "We handle single-family homes, residential estates, apartment complexes, commercial sites, and urban rooftop gardens.",
+    },
+    {
+      id: 12,
+      question: "How do you handle San Francisco's unique microclimates?",
+      answer: "We carefully select native California plants and drought-tolerant flora suited specifically to fog-heavy or sun-exposed neighborhoods.",
+    },
+    {
+      id: 13,
+      question: "Do you offer emergency storm or fallen tree cleanup?",
+      answer: "Yes, we provide rapid-response tree branch trimming and storm debris cleanup to keep your property safe.",
+    },
+    {
+      id: 14,
+      question: "Are your treatments safe for pets and children?",
+      answer: "Yes, all our soil amendments, organic fertilizers, and pest-control treatments are non-toxic and pet-safe.",
+    },
+    {
+      id: 15,
+      question: "How do I schedule a garden consultation or estimate?",
+      answer: "You can submit a request through our Contact or Booking page, or call our customer service team directly for a free on-site quote.",
+    },
+    {
+      id: 16,
+      question: "How many properties has Francisco Gardeners transformed?",
+      answer: "We have proudly serviced over 400 residential yards and commercial grounds across San Francisco and adjacent Bay Area communities.",
+    },
+    {
+      id: 17,
+      question: "Do you provide custom landscape lighting installation?",
+      answer: "Yes, our installation specialists set up low-voltage, energy-efficient LED lighting networks to enhance night-time garden aesthetics.",
+    },
+    {
+      id: 18,
+      question: "What is the mission of Francisco Gardeners?",
+      answer: "To bring outdoor spaces to life using nature-driven, sustainable horticultural practices that protect our local ecosystem.",
+    },
+    {
+      id: 19,
+      question: "What is the long-term vision of the company?",
+      answer: "To set the gold standard for zero-emission, water-wise urban landscaping across the entire San Francisco Bay Area.",
+    },
+    {
+      id: 20,
+      question: "Why should homeowners choose Francisco Gardeners?",
+      answer: "For our punctual service, clear pricing, background-checked crew members, and dedication to keeping your property vibrant year-round.",
+    },
+    {
+      id: 21,
+      question: "Does Francisco Gardeners offer career or field worker positions?",
+      answer: "Yes, we frequently hire landscape architects, lawn care technicians, and certified arborists through our Career page.",
+    },
+    {
+      id: 22,
+      question: "How can I apply for a job with Francisco Gardeners?",
+      answer: "Visit our Career page, select an open position, and fill out our online application form with your experience.",
+    },
+    {
+      id: 23,
+      question: "Do you offer apprenticeship or field training programs?",
+      answer: "Yes, we run seasonal hands-on training for aspiring arborists and horticulturists focused on sustainable practices.",
+    },
+    {
+      id: 24,
+      question: "How often should my lawn and garden be serviced?",
+      answer: "Most properties benefit from weekly or bi-weekly maintenance visits, though custom monthly schedules are also available.",
+    },
+  ];
 
- const faqs = [
-  {
-    id: 1,
-    question: "When was SRIYOG Consulting Pvt. Ltd. established?",
-    answer: "The company was established on June 14, 2018.",
-  },
-  {
-    id: 2,
-    question: "Where is SRIYOG Consulting based?",
-    answer: "It is headquartered in Kamalpokhari, Kathmandu, Nepal.",
-  },
-  {
-    id: 3,
-    question: "Is SRIYOG App have a new homepage?",
-    answer: "Yes, SRIYOG App is now an independent company.",
-  },
-  {
-    id: 4,
-    question: "What industries does SRIYOG Consulting serve?",
-    answer:
-      "SRIYOG Consulting serves a broad range of industries, including healthcare, employment and tourism.",
-  },
-  {
-    id: 5,
-    question: "Who is the CTO of SRIYOG Consulting?",
-    answer:
-      "Prakash Upreti, also known as PRACAS, is the Chief Technology Officer of SRIYOG Consulting.",
-  },
-  {
-    id: 6,
-    question: "What makes SRIYOG Consulting unique?",
-    answer:
-      "The company offers custom-tailored, secure, and scalable IT solutions with end-to-end digital transformation services.",
-  },
-  {
-    id: 7,
-    question: "Difference between website development & maintenance.",
-    answer:
-      "Website development involves creating a website from scratch, while website maintenance focuses on regularly updating, securing, and optimizing it after launch.",
-  },
-  {
-    id: 8,
-    question: "What is covered under social media management?",
-    answer:
-      "It involves monthly strategy, content creation, engagement, and analytics to enhance digital branding.",
-  },
-  {
-    id: 9,
-    question: "What does the database/ web server rental service offer?",
-    answer:
-      "It provides secure server space for hosting websites, databases, and applications.",
-  },
-  {
-    id: 10,
-    question: "What does the mobile app development service entail?",
-    answer:
-      "Development of professional mobile apps tailored to client needs, compatible with Android and iOS.",
-  },
-  {
-    id: 11,
-    question: "What kind of websites does SRIYOG Consulting develop?",
-    answer:
-      "We build custom, user-friendly websites including e-commerce, CMS, and SaaS applications.",
-  },
-  {
-    id: 12,
-    question: "What technologies does SRIYOG Consulting use?",
-    answer:
-      "SRIYOG Consulting uses a mix of modern web and data technologies, including web and software development tools, UI/UX design with Figma, databases with SQL, data analytics tools etc.",
-  },
-  {
-    id: 13,
-    question: "Does SRIYOG Consulting provides cloud hosting services?",
-    answer: "Yes, we provide secured cloud hosting services.",
-  },
-  {
-    id: 14,
-    question: "Is security included in the services?",
-    answer:
-      "Yes, SSL certification, security audits, and cyber protection are part of our cloud services.",
-  },
-  {
-    id: 15,
-    question: "What analytics services are offered?",
-    answer:
-      "Data analysis, survey form development, and insights to improve business decision-making.",
-  },
-  {
-    id: 16,
-    question: "How many clients has the CTO served so far?",
-    answer: "Over 500 clients across 15 countries.",
-  },
-  {
-    id: 17,
-    question: "What are some of SRIYOG's notable clients?",
-    answer:
-      "Clients include Magic Footwear, Trans Nepal, PUSOM, Neuro Hospital, CVDS Nepal, and more.",
-  },
-  {
-    id: 18,
-    question: "What is the mission of SRIYOG Consulting?",
-    answer:
-      "To empower businesses with reliable IT solutions that streamline operations and drive growth.",
-  },
-  {
-    id: 19,
-    question: "What is the vision of SRIYOG Consulting?",
-    answer:
-      "To be a leading IT consulting firm in Nepal and globally through innovation and strategic partnerships.",
-  },
-  {
-    id: 20,
-    question: "Why should businesses choose SRIYOG Consulting?",
-    answer:
-      "For their industry expertise, customized solutions, scalability, security, and full-spectrum digital services.",
-  },
-  {
-    id: 21,
-    question: "Is SRIYOG Consulting offering Internship opportunity?",
-    answer:
-      "Yes, we do. The intakes are on June-August, September-November, December-February, March-May.",
-  },
-  {
-    id: 22,
-    question: "How can I apply for an Internship?",
-    answer: "You need to fill our online form in Internship section.",
-  },
-  {
-    id: 23,
-    question: "Do I need to pay for an Internship Opportunity?",
-    answer:
-      "A fee of USD 100 per month is applicable for enrollment in the internship program, along with a refundable security deposit of USD 500. However, this fee may be offered as a scholarship to selected talented and expert candidates.",
-  },
-  {
-    id: 24,
-    question: "Can I join a Training?",
-    answer: "Yes, we offer various IT training courses.",
-  },
-];
-
-
-  const faq1 = faqs.slice(0,faqs.length/2);
-  const faq2 = faqs.slice(faqs.length/2)
+  const faq1 = faqs.slice(0, Math.ceil(faqs.length / 2));
+  const faq2 = faqs.slice(Math.ceil(faqs.length / 2));
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const toggleFaq = (index:number) => {
-    setOpenIndex(openIndex === index ? null : index);
+  const toggleFaq = (id: number) => {
+    setOpenIndex(openIndex === id ? null : id);
   };
 
   return (
-    <div className='footer'>
-      {/* Ribbon/Header */}
-      {/* <Ribbon name="Frequently Asked Questions" showfont={false}/> */}
+    <div className="footer bg-white py-12 md:py-20">
+      <div className="px-5 max-w-7xl mx-auto">
+        
+        {/* Page Header */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
+            Got Questions?
+          </span>
+          <h1 className="text-3xl md:text-5xl font-extrabold text-[#0D402B] tracking-tight mt-4">
+            Frequently Asked Questions
+          </h1>
+          <p className="mt-4 text-base md:text-lg text-gray-600 leading-relaxed">
+            Everything you need to know about our eco-friendly gardening, lawn care, and landscaping services in San Francisco.
+          </p>
+        </div>
 
-      <div className="px-5 py-10 max-w-7xl mx-auto">
-        {/* FAQ List */}
-        <div className="flex flex-col lg:flex-row items-start justify-center gap-4 ">
-          <div className='w-full lg:w-1/2 space-y-3 '>
-             {faq1.map((faq) => (
-            <div key={faq.id} className="rounded-md overflow-hidden group border-none">
-              <button
-                onClick={() => toggleFaq(faq.id)}
-                className="w-full flex justify-between card text2 items-center py-5 px-6   transition"
-              >
-                <h2 className="text-md font-semibold ">{faq.question}</h2>
-                <span className="text-2xl font-bold">
-                  {openIndex === faq.id ? 
-                      <div className='w-[15px] cursor-pointer h-0.5 rounded-full bg-black'></div>
-                      :
-                      <img src='/icons/plus.svg' className='w-[19px] cursor-pointer h-[19px]' alt=''/>}
-                </span>
-              </button>
+        {/* FAQ Grid */}
+        <div className="flex flex-col lg:flex-row items-start justify-center gap-6">
+          
+          {/* Column 1 */}
+          <div className="w-full lg:w-1/2 space-y-4">
+            {faq1.map((faq) => (
+              <div key={faq.id} className="rounded-2xl overflow-hidden border border-emerald-100 bg-white shadow-sm transition-all">
+                <button
+                  onClick={() => toggleFaq(faq.id)}
+                  className="w-full flex justify-between items-center py-5 px-6 text-left hover:bg-emerald-50/50 transition-colors"
+                >
+                  <h2 className="text-base font-bold text-[#0D402B] pr-4">{faq.question}</h2>
+                  <span className="flex-shrink-0 text-xl font-bold">
+                    {openIndex === faq.id ? (
+                      <div className="w-4 h-0.5 rounded-full bg-[#0D402B]"></div>
+                    ) : (
+                      <img src="/icons/plus.svg" className="w-5 h-5 cursor-pointer" alt="Expand FAQ" />
+                    )}
+                  </span>
+                </button>
 
-              <div
-                className={` transition-all card2 duration-300 cursor-pointer ease-in-out ${
-                  openIndex === faq.id ? 'max-h-96 opacity-100 translate-y-0 p-6' : 'max-h-0 opacity-0'
-                } overflow-hidden`}
-              >
-                {faq.answer}
+                <div
+                  className={`transition-all duration-300 ease-in-out ${
+                    openIndex === faq.id ? 'max-h-96 opacity-100 p-6 pt-0 text-gray-600 border-t border-emerald-100/60' : 'max-h-0 opacity-0 overflow-hidden'
+                  }`}
+                >
+                  <p className="text-sm md:text-base leading-relaxed pt-4">{faq.answer}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
           </div>
-          <div className='w-full lg:w-1/2 space-y-3'>
+
+          {/* Column 2 */}
+          <div className="w-full lg:w-1/2 space-y-4">
             {faq2.map((faq) => (
-            <div key={faq.id} className="rounded-md  overflow-hidden group border-none">
-              <button
-                onClick={() => toggleFaq(faq.id)}
-                className="w-full card text2 flex justify-between faqsQuestions items-center py-5 px-6   transition"
-              >
-                <h2 className="text-md font-semibold">{faq.question}</h2>
-                <span className="text-2xl font-bold">
-                  {openIndex === faq.id ? 
-                      <div className='w-[15px] cursor-pointer h-0.5 rounded-full bg-black'></div>
-                      :
-                      <img src='/icons/plus.svg' className='w-[19px] cursor-pointer h-[19px]' alt=''/>}
-                </span>
-              </button>
+              <div key={faq.id} className="rounded-2xl overflow-hidden border border-emerald-100 bg-white shadow-sm transition-all">
+                <button
+                  onClick={() => toggleFaq(faq.id)}
+                  className="w-full flex justify-between items-center py-5 px-6 text-left hover:bg-emerald-50/50 transition-colors"
+                >
+                  <h2 className="text-base font-bold text-[#0D402B] pr-4">{faq.question}</h2>
+                  <span className="flex-shrink-0 text-xl font-bold">
+                    {openIndex === faq.id ? (
+                      <div className="w-4 h-0.5 rounded-full bg-[#0D402B]"></div>
+                    ) : (
+                      <img src="/icons/plus.svg" className="w-5 h-5 cursor-pointer" alt="Expand FAQ" />
+                    )}
+                  </span>
+                </button>
 
-              <div
-                className={`   card2 transition-all duration-300 ease-in-out ${
-                  openIndex === faq.id ? 'max-h-96 opacity-100 translate-y-0 p-6' : 'max-h-0 opacity-0'
-                } overflow-hidden`}
-              >
-                {faq.answer}
+                <div
+                  className={`transition-all duration-300 ease-in-out ${
+                    openIndex === faq.id ? 'max-h-96 opacity-100 p-6 pt-0 text-gray-600 border-t border-emerald-100/60' : 'max-h-0 opacity-0 overflow-hidden'
+                  }`}
+                >
+                  <p className="text-sm md:text-base leading-relaxed pt-4">{faq.answer}</p>
+                </div>
               </div>
-            </div>))}
+            ))}
           </div>
+
         </div>
       </div>
     </div>
