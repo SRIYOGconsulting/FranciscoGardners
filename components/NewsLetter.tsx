@@ -24,7 +24,7 @@ const NewsLetter = () => {
     <section className="bg-teal-900 text-white py-10 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         <h2 className="text-white font-semibold italic text-3xl sm:text-4xl text-left md:pl-8">
-          Join our Newsletter
+          Join our Professional Gardening Services.
         </h2>
 
         <div
