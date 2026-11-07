@@ -118,7 +118,7 @@ const allVideos: VideoItem[] = [
     id: 10,
     title: "Turf Removal & Sustainable Yard Prep",
     section: "Lawn Care & Turf",
-    category: "Turf Removal",
+    category: "Turf Removal And Maintenance",
     duration: "4:15",
     youtubeUrl: "https://www.youtube.com/embed/oPDW1xQ7_SE",
     description: "Remove outdated, thirsty, or degraded lawns cleanly and sustainably to pave the way for eco-friendly landscapes."
