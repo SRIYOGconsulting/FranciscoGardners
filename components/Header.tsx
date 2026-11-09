@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -11,7 +11,7 @@ const Header = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
-  
+
   useEffect(() => {
     const savedTheme = localStorage.getItem('Theme');
 
@@ -51,74 +51,72 @@ const Header = () => {
   };
 
   return (
-    /* Sticky classes added here: sticky top-0 z-50 bg-white shadow-sm backdrop-blur-md */
     <header className="header sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-colors duration-300">
-      <div className="relative max-w-7xl mx-auto flex items-center justify-between py-4 pl-3 sm:px-6">
+      {/* Reduced top and bottom padding to tight minimum: pt-1 pb-1 */}
+      <div className="max-w-7xl mx-auto flex items-center justify-between pt-1 pb-1 px-4 sm:px-6 leading-none">
+        
         {/* Logo */}
-        <div className="flex items-center space-x-2">
-          <Link href="/">
+        <div className="flex items-center shrink-0">
+          <Link href="/" className="flex items-center">
             <Image
-              src="/logo/wordmark-logo.svg"
+              src="/logo/logo.jpeg"
               alt="Francisco Gardeners Logo"
-              width={800}
-              height={600}
-              className="w-[130px] md:w-[170px] h-auto"
+              width={400}
+              height={400}
+              priority
+              className="w-[100px] sm:w-[130px] h-auto object-contain block"
             />
           </Link>
         </div>
 
-        {/* Nav Links */}
-        <nav className="flex items-center space-x-0 sm:space-x-4">
+        {/* Right Navigation & Action Controls */}
+        <div className="flex items-center gap-3 sm:gap-5">
+          
+          {/* Main Desktop Nav Links */}
           {!showSearch && (
-            <div className="space-x-6 hidden lg:flex items-center">
-              <Link href="/" className="text-[16px] font-medium text-gray-700 hover:text-[#10B981] transition-colors duration-200">
+            <nav className="hidden lg:flex items-center space-x-6">
+              <Link href="/" className="text-[15px] font-medium text-gray-700 hover:text-[#10B981] transition-colors duration-200">
                 Home
               </Link>
-              <Link href="/about" className="text-[16px] font-medium text-gray-700 hover:text-[#10B981] transition-colors duration-200">
+              <Link href="/about" className="text-[15px] font-medium text-gray-700 hover:text-[#10B981] transition-colors duration-200">
                 About
               </Link>
-              <Link href="/services" className="text-[16px] font-medium text-gray-700 hover:text-[#10B981] transition-colors duration-200">
+              <Link href="/services" className="text-[15px] font-medium text-gray-700 hover:text-[#10B981] transition-colors duration-200">
                 Services
               </Link>
-              <Link href="/feedback" className="text-[16px] font-medium text-gray-700 hover:text-[#10B981] transition-colors duration-200">
+              <Link href="/feedback" className="text-[15px] font-medium text-gray-700 hover:text-[#10B981] transition-colors duration-200">
                 Feedback
               </Link>
-              <Link href="/team" className="text-[16px] font-medium text-gray-700 hover:text-[#10B981] transition-colors duration-200">
+              <Link href="/team" className="text-[15px] font-medium text-gray-700 hover:text-[#10B981] transition-colors duration-200">
                 Team
               </Link>
-              <Link href="/contact" className="text-[16px] font-medium text-gray-700 hover:text-[#10B981] transition-colors duration-200">
+              <Link href="/contact" className="text-[15px] font-medium text-gray-700 hover:text-[#10B981] transition-colors duration-200">
                 Contact
               </Link>
 
               <Link href="/career">
-                <button className="border cursor-pointer text-[16px] font-medium border-[#0D402B] text-[#0D402B] hover:text-white rounded px-4 py-1 hover:bg-[#0D402B] transition-all duration-200">
+                <button className="border cursor-pointer text-[15px] font-medium border-[#0D402B] text-[#0D402B] hover:text-white rounded px-3 py-0.5 hover:bg-[#0D402B] transition-all duration-200">
                   Career
                 </button>
               </Link>
 
               <Link href="/notice">
-                <button className="bg-[#0D402B] cursor-pointer text-[16px] border border-[#0D402B] text-white px-4 py-1 rounded hover:bg-emerald-800 transition-all duration-200">
+                <button className="bg-[#0D402B] cursor-pointer text-[15px] border border-[#0D402B] text-white px-3 py-0.5 rounded hover:bg-emerald-800 transition-all duration-200">
                   Notice
                 </button>
               </Link>
-            </div>
+            </nav>
           )}
-          
-          {/* Mobile Notice button */}
-          <div>
-            <Link href="/notice">
-              <button className="bg-[#ebebeb] cursor-pointer sm:hidden border-[1.5px] border-[#0D402B] text-black px-4 py-1 rounded hover:bg-[#0D402B] hover:text-white transition-all duration-200">
-                Notice
-              </button>
-            </Link>
-          </div>
 
-          {/* Sliding Input */}
-          <div className="absolute md:right-52 lg:right-24">
-            <div className={`hidden md:flex relative bg-white ml-2 mr-8 z-20 py-0 border rounded-md focus:outline-none
-              transition-all duration-300 ease-in-out h-8
-              ${showSearch ? "sm:w-[250px] lg:w-[550px] opacity-100 px-3 py-1" : "w-0 opacity-0 px-0 py-0 overflow-hidden"}`}>
-              <button onClick={() => setShowSearch(false)} className="text-black cursor-pointer absolute -top-1.5 left-2 font-bold text-3xl bottom-1">
+          {/* Expandable Inline Search Input */}
+          <div className="relative flex items-center">
+            <div className={`hidden md:flex items-center bg-white border rounded-md shadow-sm transition-all duration-300 ease-in-out h-8 ${
+              showSearch ? "w-[220px] lg:w-[320px] opacity-100 px-2" : "w-0 opacity-0 border-none p-0 overflow-hidden"
+            }`}>
+              <button 
+                onClick={() => setShowSearch(false)} 
+                className="text-gray-500 hover:text-black cursor-pointer mr-1 font-bold text-lg"
+              >
                 ‹
               </button>
               <input
@@ -127,39 +125,56 @@ const Header = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleKeyPress}
                 placeholder="Search..."
-                className={`absolute search left-8 right-0 top-0 bottom-0 border-none outline-none rounded-r-md focus:outline-none 
-                  transition-all duration-300 ease-in-out 
-                  ${showSearch ? "md:w-[300px] lg:w-[517px] opacity-100" : "w-0 opacity-0 px-0 py-0 overflow-hidden"}`}
+                className="w-full border-none outline-none bg-transparent text-sm text-gray-800"
               />
-            </div>            
+            </div>
+
+            {/* Search Icon Trigger */}
+            {!showSearch && (
+              <button 
+                onClick={() => setShowSearch(true)} 
+                className="p-1 rounded-full hover:bg-gray-100 hidden md:block transition-colors"
+                aria-label="Open search"
+              >
+                <Image 
+                  width={18} 
+                  height={18} 
+                  alt="search icon" 
+                  src="/icons/search.svg" 
+                  className="w-[18px] h-[18px] cursor-pointer"
+                />
+              </button>
+            )}
           </div>
 
-          {/* SEARCH ICON */}
-          {!showSearch && (
-            <Image 
-              width={22} 
-              height={22} 
-              alt="search icon" 
-              onClick={() => setShowSearch(true)} 
-              src="/icons/search.svg" 
-              className="w-[22px] h-[22px] cursor-pointer hidden md:block hover:opacity-75 transition-opacity"
-            />
-          )}
+          {/* Mobile Notice Button */}
+          <div className="sm:hidden">
+            <Link href="/notice">
+              <button className="bg-[#ebebeb] cursor-pointer border-[1.5px] border-[#0D402B] text-black px-3 py-0.5 rounded hover:bg-[#0D402B] hover:text-white transition-all duration-200 text-xs font-medium">
+                Notice
+              </button>
+            </Link>
+          </div>
 
+          {/* Theme Toggle Button */}
           <div className="hidden sm:block">
             <button
               onClick={TriggerTheme}
-              className={`text-2xl cursor-pointer ml-2 mr-0 lg:mr-0 rounded-full h-8 w-8 transition-transform hover:scale-105 ${
+              aria-label="Toggle theme"
+              className={`flex items-center justify-center text-base cursor-pointer rounded-full h-7 w-7 transition-transform hover:scale-105 ${
                 DarkIcon
-                  ? "bg-black text-white rotate-45 pl-1"
-                  : "bg-white text-black border border-gray-200"
+                  ? "bg-black text-white rotate-45"
+                  : "bg-white text-black border border-gray-200 shadow-sm"
               }`}
             >
               {DarkIcon ? "☽" : "☀︎"}
             </button>
           </div>
+
+          {/* Mobile Drawer Trigger */}
           <MobileDrawer setIsOpen={setIsOpen} isOpen={isOpen} />
-        </nav>
+        </div>
+
       </div>
     </header>
   );
