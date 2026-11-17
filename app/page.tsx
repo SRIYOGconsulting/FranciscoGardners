@@ -7,55 +7,44 @@ const partnerLogos = Array.from({ length: PARTNER_COUNT }, (_, i) => i + 1);
 export default function Home() {
   return (
     <>
-      <section className="w-full min-h-[600px] flex flex-col sm:flex-row justify-between items-start sm:items-center relative overflow-hidden">
-        {/* Desktop background */}
-        <div className="hidden sm:block absolute inset-0 -z-10">
+      <section className="w-full min-h-[550px] sm:min-h-[600px] flex flex-col sm:flex-row justify-between items-start sm:items-center relative overflow-hidden bg-white sm:bg-transparent">
+        
+        {/* Single Responsive Hero Image (Top banner on mobile, full background on sm+) */}
+        <div className="relative w-full h-[280px] sm:absolute sm:inset-0 sm:h-full sm:-z-10">
           <Image
             src="/home/hero/4.jpg"
-            alt=""
+            alt="Professional Gardening Services in San Francisco"
             fill
-            className="object-cover"
             sizes="100vw"
             priority
+            className="object-cover"
           />
+          {/* Subtle dark overlay on desktop so white text pops */}
+          <div className="hidden sm:block absolute inset-0 bg-black/40" />
         </div>
 
-        <div className="max-w-[1200px] mx-auto w-full flex flex-col sm:flex-row justify-between items-start sm:items-center sm:px-6">
-          {/* Mobile image */}
-          <div className="relative block sm:hidden w-full h-[300px]">
-            <Image
-              src="/home/hero/1.jpg"
-              alt="Professional Gardening Services in San Francisco"
-              fill
-              className="object-cover"
-              sizes="(max-width: 639px) 100vw, 50vw"
-              priority
-            />
-          </div>
-
-          <div className="flex flex-col justify-start text-left z-10 w-full sm:w-1/2 mt-4 px-6 sm:mt-0">
-          
-            <div className="font-bold text-3xl text-white md:text-5xl mb-6 ">
-            Francisco Gardeners
-
-            </div>
-
-            <h1 className="text-[18px] max-w-[600px] text-white leading-relaxed opacity-95">
-              Professional Gardening Services in San Francisco
-
+        {/* Hero Content */}
+        <div className="max-w-[1200px] mx-auto w-full flex flex-col sm:flex-row justify-between items-start sm:items-center sm:px-6 py-8 sm:py-0">
+          <div className="flex flex-col justify-start text-left z-10 w-full sm:w-1/2 px-6 sm:px-0">
+            <h1 className="font-bold text-3xl md:text-5xl text-gray-900 sm:text-white mb-4 sm:mb-6">
+              Francisco Gardeners
             </h1>
 
-            <div className="mt-8 flex gap-4">
+            <p className="text-[17px] sm:text-[18px] max-w-[600px] text-gray-700 sm:text-white leading-relaxed opacity-95">
+              Professional Gardening Services in San Francisco
+            </p>
+
+            <div className="mt-6 sm:mt-8 flex flex-wrap gap-4">
               <Link
                 href="/about"
-                className="inline-block border-2 border-[#0D5D59] py-2 px-6 rounded-md text-gray-100 font-semibold hover:bg-[#0D5D59] hover:text-white transition duration-300 cursor-pointer"
+                className="inline-block border-2 border-[#0D5D59] py-2 px-6 rounded-md text-[#0D5D59] sm:text-gray-100 font-semibold hover:bg-[#0D5D59] hover:text-white transition duration-300 cursor-pointer"
               >
                 About
               </Link>
 
               <Link
                 href="/book"
-                className="inline-block border-2 border-[#0D5D59] py-2 px-6 rounded-md text-gray-100  font-semibold hover:bg-[#0D5D59] hover:text-white transition duration-300 cursor-pointer"
+                className="inline-block bg-[#0D5D59] sm:bg-transparent border-2 border-[#0D5D59] py-2 px-6 rounded-md text-white sm:text-gray-100 font-semibold hover:bg-[#094744] sm:hover:bg-[#0D5D59] hover:text-white transition duration-300 cursor-pointer"
               >
                 Book a Service
               </Link>
