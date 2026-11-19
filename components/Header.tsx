@@ -76,14 +76,14 @@ const Header = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full bg-teal-900 shadow-sm transition-colors duration-300">
-        <div className="max-w-7xl mx-auto flex items-center justify-between py-2 px-3 sm:px-6 gap-2">
-          {/* Logo */}
-          <Link href="/" className="flex items-center shrink-0">
+      <header className="sticky top-0 z-40 w-full bg-white shadow-sm border-b border-gray-100 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto flex items-center justify-between py-3.5 px-4 sm:px-8 gap-2">
+         {/* Logo */}
+          <Link href="/" className="flex items-center shrink-0 p-0">
             <img
-              src="/logo/logo.jpeg"
+              src="/logo/logo.png"
               alt="Francisco Gardeners Logo"
-              className="w-[95px] sm:w-[115px] lg:w-[130px] h-auto max-h-[55px] object-contain block rounded-sm"
+              className="h-[55px] w-auto object-contain block scale-125 origin-left"
             />
           </Link>
 
@@ -100,8 +100,8 @@ const Header = () => {
                       href={link.href}
                       className={`text-[15px] font-medium transition-colors duration-200 ${
                         isActive
-                          ? "text-teal-300 font-semibold"
-                          : "text-white hover:text-teal-200"
+                          ? "text-teal-900 font-semibold"
+                          : "text-gray-700 hover:text-teal-800"
                       }`}
                     >
                       {link.name}
@@ -110,13 +110,13 @@ const Header = () => {
                 })}
 
                 <Link href="/career">
-                  <button className="border cursor-pointer text-[14px] font-medium border-white text-white hover:text-teal-900 rounded px-3 py-0.5 hover:bg-white transition-all duration-200">
+                  <button className="border cursor-pointer text-[14px] font-medium border-teal-900 text-teal-900 hover:text-white rounded px-3.5 py-1 hover:bg-teal-900 transition-all duration-200">
                     Career
                   </button>
                 </Link>
 
                 <Link href="/notice">
-                  <button className="bg-white cursor-pointer text-[14px] font-medium border border-white text-teal-900 px-3 py-0.5 rounded hover:bg-teal-100 transition-all duration-200">
+                  <button className="bg-teal-900 cursor-pointer text-[14px] font-medium border border-teal-900 text-white px-3.5 py-1 rounded hover:bg-teal-800 transition-all duration-200">
                     Notice
                   </button>
                 </Link>
@@ -126,16 +126,16 @@ const Header = () => {
             {/* Desktop Expandable Search (lg+) */}
             <form
               onSubmit={handleSearch}
-              className={`hidden lg:flex items-center bg-teal-800 border border-teal-600 rounded-md shadow-sm transition-all duration-300 ease-in-out h-8 ${
+              className={`hidden lg:flex items-center bg-gray-50 border border-gray-300 rounded-md shadow-sm transition-all duration-300 ease-in-out h-9 ${
                 showSearch
-                  ? "w-[300px] opacity-100 px-2"
+                  ? "w-[300px] opacity-100 px-2.5"
                   : "w-0 opacity-0 border-none p-0 overflow-hidden"
               }`}
             >
               <button
                 type="button"
                 onClick={() => setShowSearch(false)}
-                className="text-white/80 hover:text-white cursor-pointer mr-1.5 font-bold text-lg leading-none"
+                className="text-gray-500 hover:text-gray-900 cursor-pointer mr-1.5 font-bold text-lg leading-none"
               >
                 ‹
               </button>
@@ -144,7 +144,7 @@ const Header = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search..."
-                className="w-full border-none outline-none bg-transparent text-sm text-white placeholder:text-teal-200"
+                className="w-full border-none outline-none bg-transparent text-sm text-gray-800 placeholder:text-gray-400"
               />
             </form>
 
@@ -155,13 +155,13 @@ const Header = () => {
                   setShowMenuPopup(false);
                   setShowSearch(true);
                 }}
-                className="p-1.5 rounded-full hover:bg-teal-800 transition-colors cursor-pointer shrink-0"
+                className="p-2 rounded-full hover:bg-gray-100 transition-colors cursor-pointer shrink-0"
                 aria-label="Open search"
               >
                 <img
                   alt="search icon"
                   src="/icons/search.svg"
-                  className="w-[18px] h-[18px] block invert"
+                  className="w-[18px] h-[18px] block"
                 />
               </button>
             )}
@@ -170,7 +170,7 @@ const Header = () => {
             <button
               onClick={triggerTheme}
               aria-label="Toggle theme"
-              className={`flex items-center justify-center text-sm cursor-pointer rounded-full h-7 w-7 shrink-0 transition-transform hover:scale-105 ${
+              className={`flex items-center justify-center text-sm cursor-pointer rounded-full h-8 w-8 shrink-0 transition-transform hover:scale-105 ${
                 darkIcon
                   ? "bg-black text-white rotate-45"
                   : "bg-white text-black border border-gray-200 shadow-sm"
@@ -188,14 +188,14 @@ const Header = () => {
                 }}
                 aria-expanded={showMenuPopup}
                 aria-label="Toggle navigation popup"
-                className="flex items-center gap-1.5 bg-white text-teal-900 text-xs sm:text-sm font-medium px-2.5 sm:px-3 py-1.5 rounded-md shadow-sm hover:bg-teal-100 transition-all cursor-pointer whitespace-nowrap"
+                className="flex items-center gap-1.5 bg-teal-900 text-white text-xs sm:text-sm font-medium px-3 sm:px-3.5 py-2 rounded-md shadow-sm hover:bg-teal-800 transition-all cursor-pointer whitespace-nowrap"
               >
                 <span>{showMenuPopup ? "Close ✕" : "Menu ☰"}</span>
               </button>
 
               {/* Floating Popup Card with All Links */}
               {showMenuPopup && (
-                <div className="absolute right-0 mt-2 w-60 bg-white dark:bg-gray-900 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 p-3 z-50">
+                <div className="absolute right-0 mt-2 w-60 bg-white rounded-xl shadow-xl border border-gray-200 p-3 z-50">
                   <div className="flex flex-col space-y-1">
                     {navLinks.map((link) => {
                       const isActive = pathname === link.href;
@@ -206,8 +206,8 @@ const Header = () => {
                           onClick={() => setShowMenuPopup(false)}
                           className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                             isActive
-                              ? "bg-teal-50 dark:bg-teal-950 text-teal-900 dark:text-teal-300 font-semibold"
-                              : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+                              ? "bg-teal-50 text-teal-900 font-semibold"
+                              : "text-gray-700 hover:bg-gray-100"
                           }`}
                         >
                           {link.name}
@@ -216,11 +216,11 @@ const Header = () => {
                     })}
                   </div>
 
-                  <div className="border-t border-gray-200 dark:border-gray-700 my-2.5 pt-2.5 grid grid-cols-2 gap-2">
+                  <div className="border-t border-gray-200 my-2.5 pt-2.5 grid grid-cols-2 gap-2">
                     <Link
                       href="/career"
                       onClick={() => setShowMenuPopup(false)}
-                      className="text-center border border-teal-900 dark:border-teal-400 text-teal-900 dark:text-teal-300 hover:bg-teal-900 hover:text-white text-xs font-medium py-1.5 rounded-md transition-colors"
+                      className="text-center border border-teal-900 text-teal-900 hover:bg-teal-900 hover:text-white text-xs font-medium py-1.5 rounded-md transition-colors"
                     >
                       Career
                     </Link>
@@ -246,16 +246,16 @@ const Header = () => {
           onClick={() => setShowSearch(false)}
         >
           <div
-            className="bg-white dark:bg-gray-900 w-full max-w-md rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 p-4"
+            className="bg-white w-full max-w-md rounded-xl shadow-xl border border-gray-200 p-4"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-3">
-              <span className="text-sm font-semibold text-gray-700 dark:text-gray-200">
+              <span className="text-sm font-semibold text-gray-700">
                 Search Site
               </span>
               <button
                 onClick={() => setShowSearch(false)}
-                className="text-gray-400 hover:text-gray-700 dark:hover:text-white text-xl leading-none cursor-pointer"
+                className="text-gray-400 hover:text-gray-700 text-xl leading-none cursor-pointer"
               >
                 ✕
               </button>
@@ -267,7 +267,7 @@ const Header = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Type what you're looking for..."
-                className="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-teal-900"
+                className="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 bg-gray-50 text-gray-900 focus:outline-none focus:border-teal-900"
               />
               <button
                 type="submit"
