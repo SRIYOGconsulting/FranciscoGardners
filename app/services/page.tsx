@@ -26,7 +26,7 @@ export default function Certificate() {
     const createSlug = (title: string) => 
         title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
 
-  const certificates = [
+ const certificates = [
   { title: 'Lawn Care', img: '/services/1.jpg', description: 'Professional lawn maintenance including mowing, edging, fertilizing, and regular upkeep to keep your grass healthy and green year-round.' },
   { title: 'Turf Removal', img: '/services/2.jpg', description: 'Remove outdated, thirsty, or degraded lawns cleanly and sustainably to pave the way for modern landscapes.' },
   { title: 'Commercial Turf Installation', img: '/services/3.jpg', description: 'Upgrade corporate campuses, multi-family housing, and commercial properties with durable turf solutions.' },
@@ -71,6 +71,8 @@ export default function Certificate() {
   { title: 'Commercial Landscaping', img: '/services/8.jpg', description: 'Elevate corporate campuses, retail centers, HOA communities, and commercial facilities with professional grounds management.' },
   { title: 'Irrigation System Repair & Maintenance', img: '/services/42.jpg', description: 'Keep your automated watering system operating at peak efficiency with expert valve repairs, leak fixing, and controller programming.' },
   { title: 'Outdoor Living Space Installation', img: '/services/44.jpg', description: 'Expand your homes indoor footprint into custom outdoor kitchens, built-in fire pits, dining pergolas, and stone lounge seating.' },
+  { title: 'Tree Lighting', img: '/services/45.jpg', description: 'Highlight tree canopies, trunks, and branches with weather-resistant warm LED lighting for evening curb appeal, ambiance, and seasonal displays.' },
+  { title: 'Plant Rental Service', img: '/services/46.jpg', description: 'Rent lush potted plants, specimen trees, and greenery for offices, events, photoshoots, and staging with flexible delivery and care options.' },
 ];
     return (
         <div className='relative'>

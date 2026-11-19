@@ -48,8 +48,9 @@ const certificates = [
   { title: 'Commercial Landscaping', img: '/services/8.jpg', description: 'Elevate corporate campuses, retail centers, HOA communities, and commercial facilities with professional grounds management.' },
   { title: 'Irrigation System Repair & Maintenance', img: '/services/42.jpg', description: 'Keep your automated watering system operating at peak efficiency with expert valve repairs, leak fixing, and controller programming.' },
   { title: 'Outdoor Living Space Installation', img: '/services/44.jpg', description: 'Expand your homes indoor footprint into custom outdoor kitchens, built-in fire pits, dining pergolas, and stone lounge seating.' },
+  { title: 'Tree Lighting', img: '/services/45.jpg', description: 'Highlight tree canopies, trunks, and branches with weather-resistant warm LED lighting for evening curb appeal, ambiance, and seasonal displays.' },
+  { title: 'Plant Rental Service', img: '/services/46.jpg', description: 'Rent lush potted plants, specimen trees, and greenery for offices, events, photoshoots, and staging with flexible delivery and care options.' },
 ];
-
 const createSlug = (title: string) =>
   title
     .toLowerCase()
