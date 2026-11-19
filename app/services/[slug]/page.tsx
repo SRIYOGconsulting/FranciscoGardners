@@ -51,6 +51,7 @@ const certificates = [
   { title: 'Tree Lighting', img: '/services/45.jpg', description: 'Highlight tree canopies, trunks, and branches with weather-resistant warm LED lighting for evening curb appeal, ambiance, and seasonal displays.' },
   { title: 'Plant Rental Service', img: '/services/46.jpg', description: 'Rent lush potted plants, specimen trees, and greenery for offices, events, photoshoots, and staging with flexible delivery and care options.' },
 ];
+
 const createSlug = (title: string) =>
   title
     .toLowerCase()
@@ -69,10 +70,10 @@ export default async function ServicePage({ params }: PageProps) {
     notFound();
   }
 
-  // Related services (filters current service out and picks 3 related ones)
+  // Fewer related services (2 cards) for a cleaner, more spacious layout
   const relatedServices = certificates
     .filter((c) => createSlug(c.title) !== slug)
-    .slice(0, 3);
+    .slice(0, 2);
 
   const faqs = [
     {
@@ -101,7 +102,6 @@ export default async function ServicePage({ params }: PageProps) {
     <main className="w-full bg-white text-gray-800">
       {/* 1. HERO SECTION WITH IMAGE PLACEHOLDER BACKDROP */}
       <section className="relative w-full h-[400px] sm:h-[480px] bg-emerald-950/80 flex items-center justify-center text-center px-4 overflow-hidden">
-        {/* Backdrop Image Container */}
         <div className="absolute inset-0 z-0 opacity-30">
           <Image
             src={service.img}
@@ -112,23 +112,19 @@ export default async function ServicePage({ params }: PageProps) {
           />
         </div>
 
-        {/* Hero Content */}
         <div className="relative z-10 max-w-4xl mx-auto text-white space-y-4">
-          {/* Breadcrumb Navigation */}
           <nav className="text-xs sm:text-sm font-medium text-emerald-200 space-x-2">
             <Link href="/" className="hover:underline">Home</Link>
-            <span>&gt;</span>      {/* &gt; is used for the > sign */}                                                   
+            <span>&gt;</span>
             <Link href="/services" className="hover:underline">Services</Link>
             <span>&gt;</span>
             <span className="text-white font-normal">{service.title}</span>
           </nav>
 
-          {/* Title Heading with San Francisco Context */}
           <h1 className="text-3xl sm:text-5xl font-bold tracking-tight">
             {service.title} Services in San Francisco
           </h1>
 
-          {/* Subtitle Description given */}
           <p className="text-base sm:text-lg text-emerald-100 max-w-2xl mx-auto leading-relaxed">
             {service.description}
           </p>
@@ -154,21 +150,20 @@ export default async function ServicePage({ params }: PageProps) {
         </p>
       </section>
 
-     { /* 3. RELATED SERVICES SECTION */}
-      <section className="bg-gray-50 py-16 px-6">
-        <div className="max-w-6xl mx-auto text-center space-y-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-teal-900">
+      {/* 3. RELATED SERVICES SECTION */}
+      <section className="bg-gray-50 py-20 px-6 sm:px-10">
+        <div className="max-w-5xl mx-auto space-y-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-teal-900 text-center">
             Related Services
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {relatedServices.map((rel, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow text-center flex flex-col"
+                className="bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-shadow text-left flex flex-col"
               >
-                {/* Related Service Image Placeholder */}
-                <div className="relative w-full h-48 bg-gray-200">
+                <div className="relative w-full h-56 bg-gray-200">
                   <Image
                     src={rel.img}
                     alt={rel.title}
@@ -177,19 +172,28 @@ export default async function ServicePage({ params }: PageProps) {
                   />
                 </div>
 
-                <div className="p-6 flex-1 flex flex-col justify-between space-y-3">
-                  <h3 className="font-bold text-lg text-gray-900">
-                    {rel.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-gray-600 line-clamp-3">
-                    {rel.description}
-                  </p>
-                  <div className="pt-2">
+                <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-5">
+                  <div className="space-y-2">
+                    <h3 className="font-bold text-xl text-gray-900">
+                      {rel.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 line-clamp-1">
+                      {rel.description}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-3 pt-1">
                     <Link
                       href={`/services/${createSlug(rel.title)}`}
-                      className="inline-block text-xs font-semibold text-emerald-700 hover:text-emerald-900 underline"
+                      className="inline-block px-4 py-2 bg-teal-900 hover:bg-teal-800 text-white rounded-md text-sm font-medium transition-colors"
                     >
-                      Learn More &rarr;
+                      Browse More
+                    </Link>
+                    <Link
+                      href={`/contact?service=${encodeURIComponent(rel.title)}`}
+                      className="inline-block px-4 py-2 border border-gray-300 hover:border-teal-900 text-gray-800 hover:text-teal-900 rounded-md text-sm font-medium transition-colors"
+                    >
+                      Book this Service
                     </Link>
                   </div>
                 </div>
