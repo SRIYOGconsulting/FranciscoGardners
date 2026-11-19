@@ -76,15 +76,14 @@ const Header = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-sm transition-colors duration-300">
+      <header className="sticky top-0 z-40 w-full bg-teal-900 shadow-sm transition-colors duration-300">
         <div className="max-w-7xl mx-auto flex items-center justify-between py-2 px-3 sm:px-6 gap-2">
-          
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
             <img
               src="/logo/logo.jpeg"
               alt="Francisco Gardeners Logo"
-              className="w-[95px] sm:w-[115px] lg:w-[130px] h-auto max-h-[55px] object-contain block"
+              className="w-[95px] sm:w-[115px] lg:w-[130px] h-auto max-h-[55px] object-contain block rounded-sm"
             />
           </Link>
 
@@ -101,8 +100,8 @@ const Header = () => {
                       href={link.href}
                       className={`text-[15px] font-medium transition-colors duration-200 ${
                         isActive
-                          ? "text-[#10B981] font-semibold"
-                          : "text-gray-700 dark:text-gray-200 hover:text-[#10B981]"
+                          ? "text-teal-300 font-semibold"
+                          : "text-white hover:text-teal-200"
                       }`}
                     >
                       {link.name}
@@ -111,13 +110,13 @@ const Header = () => {
                 })}
 
                 <Link href="/career">
-                  <button className="border cursor-pointer text-[14px] font-medium border-[#0D402B] dark:border-emerald-500 text-[#0D402B] dark:text-emerald-400 hover:text-white rounded px-3 py-0.5 hover:bg-[#0D402B] transition-all duration-200">
+                  <button className="border cursor-pointer text-[14px] font-medium border-white text-white hover:text-teal-900 rounded px-3 py-0.5 hover:bg-white transition-all duration-200">
                     Career
                   </button>
                 </Link>
 
                 <Link href="/notice">
-                  <button className="bg-[#0D402B] cursor-pointer text-[14px] font-medium border border-[#0D402B] text-white px-3 py-0.5 rounded hover:bg-emerald-800 transition-all duration-200">
+                  <button className="bg-white cursor-pointer text-[14px] font-medium border border-white text-teal-900 px-3 py-0.5 rounded hover:bg-teal-100 transition-all duration-200">
                     Notice
                   </button>
                 </Link>
@@ -127,7 +126,7 @@ const Header = () => {
             {/* Desktop Expandable Search (lg+) */}
             <form
               onSubmit={handleSearch}
-              className={`hidden lg:flex items-center bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm transition-all duration-300 ease-in-out h-8 ${
+              className={`hidden lg:flex items-center bg-teal-800 border border-teal-600 rounded-md shadow-sm transition-all duration-300 ease-in-out h-8 ${
                 showSearch
                   ? "w-[300px] opacity-100 px-2"
                   : "w-0 opacity-0 border-none p-0 overflow-hidden"
@@ -136,7 +135,7 @@ const Header = () => {
               <button
                 type="button"
                 onClick={() => setShowSearch(false)}
-                className="text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white cursor-pointer mr-1.5 font-bold text-lg leading-none"
+                className="text-white/80 hover:text-white cursor-pointer mr-1.5 font-bold text-lg leading-none"
               >
                 ‹
               </button>
@@ -145,7 +144,7 @@ const Header = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search..."
-                className="w-full border-none outline-none bg-transparent text-sm text-gray-800 dark:text-gray-100"
+                className="w-full border-none outline-none bg-transparent text-sm text-white placeholder:text-teal-200"
               />
             </form>
 
@@ -156,13 +155,13 @@ const Header = () => {
                   setShowMenuPopup(false);
                   setShowSearch(true);
                 }}
-                className="p-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer shrink-0"
+                className="p-1.5 rounded-full hover:bg-teal-800 transition-colors cursor-pointer shrink-0"
                 aria-label="Open search"
               >
                 <img
                   alt="search icon"
                   src="/icons/search.svg"
-                  className="w-[18px] h-[18px] block dark:invert"
+                  className="w-[18px] h-[18px] block invert"
                 />
               </button>
             )}
@@ -189,7 +188,7 @@ const Header = () => {
                 }}
                 aria-expanded={showMenuPopup}
                 aria-label="Toggle navigation popup"
-                className="flex items-center gap-1.5 bg-[#0D402B] text-white text-xs sm:text-sm font-medium px-2.5 sm:px-3 py-1.5 rounded-md shadow-sm hover:bg-emerald-800 transition-all cursor-pointer whitespace-nowrap"
+                className="flex items-center gap-1.5 bg-white text-teal-900 text-xs sm:text-sm font-medium px-2.5 sm:px-3 py-1.5 rounded-md shadow-sm hover:bg-teal-100 transition-all cursor-pointer whitespace-nowrap"
               >
                 <span>{showMenuPopup ? "Close ✕" : "Menu ☰"}</span>
               </button>
@@ -207,7 +206,7 @@ const Header = () => {
                           onClick={() => setShowMenuPopup(false)}
                           className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                             isActive
-                              ? "bg-emerald-50 dark:bg-emerald-950 text-[#10B981] font-semibold"
+                              ? "bg-teal-50 dark:bg-teal-950 text-teal-900 dark:text-teal-300 font-semibold"
                               : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
                           }`}
                         >
@@ -221,14 +220,14 @@ const Header = () => {
                     <Link
                       href="/career"
                       onClick={() => setShowMenuPopup(false)}
-                      className="text-center border border-[#0D402B] dark:border-emerald-500 text-[#0D402B] dark:text-emerald-400 hover:bg-[#0D402B] hover:text-white text-xs font-medium py-1.5 rounded-md transition-colors"
+                      className="text-center border border-teal-900 dark:border-teal-400 text-teal-900 dark:text-teal-300 hover:bg-teal-900 hover:text-white text-xs font-medium py-1.5 rounded-md transition-colors"
                     >
                       Career
                     </Link>
                     <Link
                       href="/notice"
                       onClick={() => setShowMenuPopup(false)}
-                      className="text-center bg-[#0D402B] text-white hover:bg-emerald-800 text-xs font-medium py-1.5 rounded-md transition-colors"
+                      className="text-center bg-teal-900 text-white hover:bg-teal-800 text-xs font-medium py-1.5 rounded-md transition-colors"
                     >
                       Notice
                     </Link>
@@ -268,11 +267,11 @@ const Header = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Type what you're looking for..."
-                className="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-[#0D402B]"
+                className="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-teal-900"
               />
               <button
                 type="submit"
-                className="bg-[#0D402B] hover:bg-emerald-800 text-white text-sm font-medium px-4 py-2 rounded-lg cursor-pointer shrink-0"
+                className="bg-teal-900 hover:bg-teal-800 text-white text-sm font-medium px-4 py-2 rounded-lg cursor-pointer shrink-0"
               >
                 Search
               </button>
