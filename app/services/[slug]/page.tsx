@@ -157,7 +157,7 @@ export default async function ServicePage({ params }: PageProps) {
             Related Services
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-24">
             {relatedServices.map((rel, index) => (
               <div
                 key={index}

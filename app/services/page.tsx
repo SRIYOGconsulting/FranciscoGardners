@@ -1,4 +1,3 @@
-
 'use client'
 import { useEffect, useState } from 'react';
 import Lightbox from '../../components/Lightbox';
@@ -79,7 +78,7 @@ export default function Certificate() {
     return (
         <div className='relative'>
             <div className="px-6 sm:px-10 py-14 max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16 lg:gap-20">
                     {certificates.map((cert, idx) => {
                         const slug = createSlug(cert.title);
                         return (
