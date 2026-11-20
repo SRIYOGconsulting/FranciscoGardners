@@ -70,10 +70,10 @@ export default async function ServicePage({ params }: PageProps) {
     notFound();
   }
 
-  // Fewer related services (2 cards) for a cleaner, more spacious layout
+  // 3 related services for a balanced 3-column grid
   const relatedServices = certificates
     .filter((c) => createSlug(c.title) !== slug)
-    .slice(0, 2);
+    .slice(0, 3);
 
   const faqs = [
     {
@@ -152,12 +152,12 @@ export default async function ServicePage({ params }: PageProps) {
 
       {/* 3. RELATED SERVICES SECTION */}
       <section className="bg-gray-50 py-20 px-6 sm:px-10">
-        <div className="max-w-5xl mx-auto space-y-12">
+        <div className="max-w-6xl mx-auto space-y-12">
           <h2 className="text-2xl sm:text-3xl font-bold text-teal-900 text-center">
             Related Services
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {relatedServices.map((rel, index) => (
               <div
                 key={index}
