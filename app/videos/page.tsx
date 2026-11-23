@@ -99,8 +99,8 @@ const allVideos: VideoItem[] = [
     title: "Custom Fencing Installation & Repair",
     section: "Landscaping & Design",
     category: "Fencing Installation",
-    duration: "3:45",
-    youtubeUrl: "https://www.youtube.com/embed/8N52FVPZvd8",
+    duration: "24:43",
+    youtubeUrl: "https://www.youtube.com/embed/hORaZ5_jxzk",
     description: "Enhance privacy and property security with custom horizontal slat wood and metal fencing built for coastal conditions."
   },
 
@@ -119,8 +119,8 @@ const allVideos: VideoItem[] = [
     title: "Turf Removal & Sustainable Yard Prep",
     section: "Lawn Care & Turf",
     category: "Turf Removal And Maintenance",
-    duration: "4:15",
-    youtubeUrl: "https://www.youtube.com/embed/oPDW1xQ7_SE",
+    duration: "16:46",
+    youtubeUrl: "https://www.youtube.com/embed/Jlzd4HUgoBk",
     description: "Remove outdated, thirsty, or degraded lawns cleanly and sustainably to pave the way for eco-friendly landscapes."
   },
   {
@@ -128,8 +128,8 @@ const allVideos: VideoItem[] = [
     title: "Commercial Turf Installation & Grounds Management",
     section: "Lawn Care & Turf",
     category: "Commercial Turf",
-    duration: "6:20",
-    youtubeUrl: "https://www.youtube.com/embed/lwubzTZlkrA",
+    duration: "11:20",
+    youtubeUrl: "https://www.youtube.com/embed/mZ6vyVuVtaY",
     description: "Upgrade corporate campuses, multi-family housing, and commercial properties with durable, high-traffic turf solutions."
   },
   {
@@ -137,8 +137,8 @@ const allVideos: VideoItem[] = [
     title: "Artificial Turf Installation for Bay Area Yards",
     section: "Lawn Care & Turf",
     category: "Artificial Turf",
-    duration: "7:12",
-    youtubeUrl: "https://www.youtube.com/embed/kqDg7hwavQo",
+    duration: "24:22",
+    youtubeUrl: "https://www.youtube.com/embed/uvOTJI-hnl4",
     description: "Enjoy a pristine, mud-free, evergreen lawn year-round with premium, non-toxic artificial turf engineered for city yards."
   },
   {
@@ -146,8 +146,8 @@ const allVideos: VideoItem[] = [
     title: "Grass Seeding & Lawn Overseeding Services",
     section: "Lawn Care & Turf",
     category: "Grass Seeding",
-    duration: "3:50",
-    youtubeUrl: "https://www.youtube.com/embed/_RatePmRTco",
+    duration: "30:36",
+    youtubeUrl: "https://www.youtube.com/embed/Ha1ITqxdvLc",
     description: "Revitalize thin, patchy lawns or establish brand new turf using microclimate-adapted seed blends and organic soil prep."
   },
   {
@@ -155,8 +155,8 @@ const allVideos: VideoItem[] = [
     title: "Instant Eco-Friendly Sod Installation",
     section: "Lawn Care & Turf",
     category: "Sod Installation",
-    duration: "8:40",
-    youtubeUrl: "https://www.youtube.com/embed/gKsitYyupmY?si=m6y3_hGaaEuCvhHa",
+    duration: "14:20",
+    youtubeUrl: "https://www.youtube.com/embed/VlJDBG4xAHQ",
     description: "Transform bare dirt or degraded yards into instant, lush green lawns with premium, microclimate-suited sod varieties."
   },
   {
@@ -164,8 +164,8 @@ const allVideos: VideoItem[] = [
     title: "Mulching Services & Moisture Retention",
     section: "Lawn Care & Turf",
     category: "Mulching Services",
-    duration: "4:55",
-    youtubeUrl: "https://www.youtube.com/embed/MBobxICT_Po",
+    duration: "17:47",
+    youtubeUrl: "https://www.youtube.com/embed/Uzta9W86XZQ",
     description: "Conserve soil moisture, suppress weeds naturally, and insulate roots with high-grade organic bark and wood chip mulch."
   },
   {
@@ -173,8 +173,8 @@ const allVideos: VideoItem[] = [
     title: "Lawn Leveling, Topdressing & Aeration",
     section: "Lawn Care & Turf",
     category: "Lawn Leveling",
-    duration: "5:10",
-    youtubeUrl: "https://www.youtube.com/embed/KYgwwu3p0Dc",
+    duration: "16:11",
+    youtubeUrl: "https://www.youtube.com/embed/hAg9nzx7fYY",
     description: "Smooth out uneven surfaces, relieve compaction, and encourage deep root growth with topdressing and core aeration."
   },
 
@@ -184,7 +184,7 @@ const allVideos: VideoItem[] = [
     title: "Tree Sales & Hand-Selected Native Plant Sourcing",
     section: "Trees & Planting",
     category: "Tree Sales",
-    duration: "6:15",
+    duration: "16:15",
     youtubeUrl: "https://www.youtube.com/embed/6BNzTbzCxw4",
     description: "Source healthy, hand-selected native California, fruit, and specimen trees matched to your property's soil and microclimate."
   },
@@ -193,7 +193,7 @@ const allVideos: VideoItem[] = [
     title: "Plant Propagation & Specimen Multiplication",
     section: "Trees & Planting",
     category: "Plant Propagation",
-    duration: "4:30",
+    duration: "14:30",
     youtubeUrl: "https://www.youtube.com/embed/2kEd7CYrmSg",
     description: "Multiply your favorite garden plants, rare ornamentals, and California natives using chemical-free propagation techniques."
   },
@@ -202,7 +202,7 @@ const allVideos: VideoItem[] = [
     title: "Certified Arborist Tree Pruning & Removal",
     section: "Trees & Planting",
     category: "Tree Pruning",
-    duration: "9:20",
+    duration: "19:20",
     youtubeUrl: "https://www.youtube.com/embed/q1IHqAZxLrc",
     description: "Maintain tree health, structural safety, and wind resilience with certified arborist pruning and low-impact removal."
   },
@@ -211,8 +211,8 @@ const allVideos: VideoItem[] = [
     title: "Hedge Trimming & Precision Shrub Shaping",
     section: "Trees & Planting",
     category: "Hedge Trimming",
-    duration: "3:40",
-    youtubeUrl: "https://www.youtube.com/embed/8N52FVPZvd8",
+    duration: "14:40",
+    youtubeUrl: "https://www.youtube.com/embed/i5mdCy1ea58",
     description: "Maintain privacy, clean lines, and plant health with expert precision hand-pruning and electric hedge trimming."
   },
   {
@@ -220,7 +220,7 @@ const allVideos: VideoItem[] = [
     title: "Soil Improvement, Fertilization & Clay Breakdown",
     section: "Trees & Planting",
     category: "Soil Improvement",
-    duration: "5:50",
+    duration: "15:50",
     youtubeUrl: "https://www.youtube.com/embed/Kgd1RpT_NVM",
     description: "Enhance soil fertility, break down heavy urban clay, and boost natural moisture retention with organic soil amendments."
   },
@@ -229,7 +229,7 @@ const allVideos: VideoItem[] = [
     title: "Pest, Disease & Non-Toxic Weed Control",
     section: "Trees & Planting",
     category: "Pest Control",
-    duration: "7:05",
+    duration: "17:05",
     youtubeUrl: "https://www.youtube.com/embed/oPDW1xQ7_SE",
     description: "Protect your garden, lawn, and trees from common Bay Area pests and diseases with professional, eco-safe care."
   },
@@ -238,7 +238,7 @@ const allVideos: VideoItem[] = [
     title: "Fire Fuel Reduction & Wildfire Mitigation",
     section: "Trees & Planting",
     category: "Fire Fuel Reduction",
-    duration: "4:45",
+    duration: "14:45",
     youtubeUrl: "https://www.youtube.com/embed/lwubzTZlkrA",
     description: "Protect your property from wildfire risks through strategic brush clearing, deadwood removal, and fire-resistant plant care."
   },
@@ -249,7 +249,7 @@ const allVideos: VideoItem[] = [
     title: "Smart Irrigation Installation & Water Conservation",
     section: "Maintenance & Infrastructure",
     category: "Irrigation Services",
-    duration: "6:30",
+    duration: "16:30",
     youtubeUrl: "https://www.youtube.com/embed/kqDg7hwavQo",
     description: "Keep your landscape thriving while conserving water through smart automated systems and weather-based controllers."
   },
@@ -258,7 +258,7 @@ const allVideos: VideoItem[] = [
     title: "Gutter Cleaning & Roof Runoff Protection",
     section: "Maintenance & Infrastructure",
     category: "Gutter Cleaning",
-    duration: "3:15",
+    duration: "13:15",
     youtubeUrl: "https://www.youtube.com/embed/_RatePmRTco",
     description: "Protect your property from water damage, roof overflow, and garden erosion with thorough, safe gutter cleaning."
   },
@@ -267,7 +267,7 @@ const allVideos: VideoItem[] = [
     title: "Landscape Drainage, French Drains & Grading",
     section: "Maintenance & Infrastructure",
     category: "Landscape Grading",
-    duration: "8:12",
+    duration: "28:12",
     youtubeUrl: "https://www.youtube.com/embed/mnH36YkdqP0",
     description: "Prevent winter flooding, water pooling, and foundation damage with land grading, French drains, and bio-retention setups."
   },
@@ -276,7 +276,7 @@ const allVideos: VideoItem[] = [
     title: "Energy-Efficient Low-Voltage Landscape Lighting",
     section: "Maintenance & Infrastructure",
     category: "Landscape Lighting",
-    duration: "5:25",
+    duration: "25:25",
     youtubeUrl: "https://www.youtube.com/embed/RfpBwIHehPI",
     description: "Illuminate garden pathways, architectural foliage, and outdoor living areas with low-voltage LED landscape lighting."
   },
@@ -285,7 +285,7 @@ const allVideos: VideoItem[] = [
     title: "Yard Work, Brush Cleanup & Overgrowth Removal",
     section: "Maintenance & Infrastructure",
     category: "Yard Work",
-    duration: "4:05",
+    duration: "24:05",
     youtubeUrl: "https://www.youtube.com/embed/6fBYgVT9QSo",
     description: "Restore order to overgrown, messy yards with complete property clearing, leaf removal, and eco-friendly green disposal."
   },
@@ -294,7 +294,7 @@ const allVideos: VideoItem[] = [
     title: "Rooftop, Balcony & Urban Terrace Gardening",
     section: "Maintenance & Infrastructure",
     category: "Rooftop Gardening",
-    duration: "7:40",
+    duration: "17:40",
     youtubeUrl: "https://www.youtube.com/embed/6fBYgVT9QSo",
     description: "Transform urban roofs, balconies, and elevated terraces into private, wind-resistant green oases across San Francisco."
   },
@@ -303,7 +303,7 @@ const allVideos: VideoItem[] = [
     title: "Interior Plant Care & Biophilic Office Maintenance",
     section: "Maintenance & Infrastructure",
     category: "Interior Plant Care",
-    duration: "5:00",
+    duration: "15:00",
     youtubeUrl: "https://www.youtube.com/embed/elqF1i8yiCs",
     description: "Keep indoor plants, corporate foliage, and lobby biophilic displays thriving, dust-free, and healthy year-round."
   }
