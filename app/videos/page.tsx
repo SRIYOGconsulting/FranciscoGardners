@@ -45,8 +45,8 @@ const allVideos: VideoItem[] = [
     title: "Hardscaping & Stone Pathway Craftsmanship",
     section: "Landscaping & Design",
     category: "Hardscaping",
-    duration: "2:11",
-    youtubeUrl: "https://www.youtube.com/embed/epyvUG4uImk",
+    duration: "40:11",
+    youtubeUrl: "https://www.youtube.com/embed/cG_jDS0oprg",
     description: "Design and build durable outdoor structures, stone pathways, and retaining walls tailored to San Francisco's hilly terrain."
   },
   {
@@ -54,8 +54,8 @@ const allVideos: VideoItem[] = [
     title: "Retaining Wall Construction & Slope Control",
     section: "Landscaping & Design",
     category: "Retaining Walls",
-    duration: "0:10",
-    youtubeUrl: "https://www.youtube.com/embed/RfpBwIHehPI",
+    duration: "25:43",
+    youtubeUrl: "https://www.youtube.com/embed/AMiDPOR68_g",
     description: "Stabilize sloped yards, control soil erosion, and build terraced garden beds with engineered stone and timber."
   },
   {
@@ -72,8 +72,8 @@ const allVideos: VideoItem[] = [
     title: "Permeable Paver Patios & Pathway Installation",
     section: "Landscaping & Design",
     category: "Paver Installation",
-    duration: "2:18",
-    youtubeUrl: "https://www.youtube.com/embed/WLbkSxa2cWM",
+    duration: "15:43",
+    youtubeUrl: "https://www.youtube.com/embed/0WZTuFSjHO0",
     description: "Build crack-resistant paver patios and driveways using permeable interlocking concrete and natural stone pavers."
   },
   {
