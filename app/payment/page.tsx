@@ -67,7 +67,7 @@ const Payment = () => {
            <Image
               width={600}
               height={800}
-              src="/payment/bank.png"
+              src="/payment/bank1.png"
               alt="Payment QR"
               className="w-full h-full rounded-3xl object-contain "
             />
