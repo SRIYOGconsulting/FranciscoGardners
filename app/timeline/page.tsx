@@ -37,7 +37,7 @@ export default function Timeline() {
             {/* <Ribbon name="Timeline" showfont={false}/> */}
 
             {/* Timeline Container */}
-            <div className="max-w-5xl mx-auto px-4 md:px-8 relative py-8">
+            <div className="max-w-7xl mx-auto px-4 md:px-8 relative py-8">
 
                 {/* Vertical Center Line */}
                 <div className="absolute left-1/2 top-18 bottom-18 transform -translate-x-1/2 w-1 bg-[#10B981] rounded-full"></div>

@@ -5,35 +5,35 @@ export default function WhyUs () {
 
     return (
         <div>
-            <div className="max-w-6xl mx-auto pt-8 mb-6 flex flex-col gap-20 items-center justify-center px-4 pb-7">
+            <div className="max-w-7xl mx-auto px-4 md:px-8 pt-8 mb-6 flex flex-col gap-20 items-center justify-center pb-7">
 
                 {/* SECTION 1 */}
-                <div className="grid md:grid-cols-2 gap-10 place-items-center">
-                    <div className="space-y-6 max-w-md">
+                <div className="w-full grid md:grid-cols-2 gap-12 items-center">
+                    <div className="space-y-6">
                         <h1 className="text-3xl md:text-4xl font-semibold leading-snug text-[#0D402B]">
                             We Make Transforming Outdoor Spaces Simple
                         </h1>
-                        <p className="text-gray-700 leading-relaxed">
+                        <p className="text-gray-700 leading-relaxed text-lg">
                             At Francisco Gardeners, we make beautiful, healthy green spaces effortless for San Francisco property owners. From routine lawn maintenance and deep yard cleanups to custom landscaping, we handle every detail so you can relax and enjoy your garden without the hassle.
                         </p>
                     </div>
 
                     <Image 
-                        height={10} 
-                        width={200}
+                        height={600} 
+                        width={800}
                         src="/why/neatlawn.jpg" 
                         alt="Expert Landscaping" 
-                        className="w-full max-w-sm md:max-w-[350px] rounded-2xl  shadow-sm"
+                        className="w-full h-80 md:h-96 rounded-2xl object-cover shadow-sm"
                     />
                 </div>
 
                 {/* SECTION 2 */}
-                <div className="grid md:grid-cols-2 gap-10 place-items-center md:[direction:rtl]">
-                    <div className="space-y-6 max-w-md text-left [direction:ltr]">
+                <div className="w-full grid md:grid-cols-2 gap-12 items-center md:[direction:rtl]">
+                    <div className="space-y-6 text-left [direction:ltr]">
                         <h1 className="text-3xl md:text-4xl font-semibold leading-snug text-[#0D402B]">
                             Licensed Specialists, Comprehensive Garden Care
                         </h1>
-                        <p className="text-gray-700 leading-relaxed">
+                        <p className="text-gray-700 leading-relaxed text-lg">
                             Our team consists of background-checked, experienced field specialists—including tree arborists, lawn care experts, plumbers, and outdoor lighting installers. Whether you need ongoing care or specialized tree pruning, we deliver dependable quality tailored to San Francisco’s unique climate.
                         </p>
                     </div>
@@ -43,17 +43,17 @@ export default function WhyUs () {
                         width={800}
                         src="/why/worker.jpg" 
                         alt="Verified Garden Experts" 
-                        className="w-full max-w-sm md:max-w-[350px] rounded-2xl object-cover shadow-sm"
+                        className="w-full h-80 md:h-96 rounded-2xl object-cover shadow-sm"
                     />
                 </div>
 
                 {/* SECTION 3 */}
-                <div className="grid md:grid-cols-2 gap-10 place-items-center">
-                    <div className="space-y-6 max-w-md">
+                <div className="w-full grid md:grid-cols-2 gap-12 items-center">
+                    <div className="space-y-6">
                         <h1 className="text-3xl md:text-4xl font-semibold leading-snug text-[#0D402B]">
                             Eco-Friendly & Smart Water Solutions
                         </h1>
-                        <p className="text-gray-700 leading-relaxed">
+                        <p className="text-gray-700 leading-relaxed text-lg">
                             We prioritize green practices that protect both your lawn and the environment. Utilizing battery-powered, low-noise machinery, organic fertilizers, and drought-tolerant Bay Area flora, we build sustainable gardens that thrive year-round with efficient water management.
                         </p>
                     </div>
@@ -63,17 +63,17 @@ export default function WhyUs () {
                         width={800}
                         src="/why/mower.jpg" 
                         alt="Sustainable Eco-Friendly Gardening" 
-                        className="w-full max-w-sm md:max-w-[350px] rounded-2xl object-cover shadow-sm"
+                        className="w-full h-80 md:h-96 rounded-2xl object-cover shadow-sm"
                     />
                 </div>
 
                 {/* SECTION 4 */}
-                <div className="grid md:grid-cols-2 gap-10 place-items-center md:[direction:rtl]">
-                    <div className="space-y-6 max-w-md text-left [direction:ltr]">
+                <div className="w-full grid md:grid-cols-2 gap-12 items-center md:[direction:rtl]">
+                    <div className="space-y-6 text-left [direction:ltr]">
                         <h1 className="text-3xl md:text-4xl font-semibold leading-snug text-[#0D402B]">
                             Trusted, Reliable & Seamless Service
                         </h1>
-                        <p className="text-gray-700 leading-relaxed">
+                        <p className="text-gray-700 leading-relaxed text-lg">
                             Since our inception, Francisco Gardeners has been built on trust, punctuality, and transparent pricing. We continually refine our scheduled care plans and service offerings to ensure hassle-free booking, exceptional craftsmanship, and total peace of mind for every client.
                         </p>
                     </div>
@@ -83,7 +83,7 @@ export default function WhyUs () {
                         width={800}
                         src="/why/frontyard.jpg" 
                         alt="Reliable Lawn Care" 
-                        className="w-full max-w-sm md:max-w-[350px] rounded-2xl object-cover shadow-sm"
+                        className="w-full h-80 md:h-96 rounded-2xl object-cover shadow-sm"
                     />
                 </div>
 

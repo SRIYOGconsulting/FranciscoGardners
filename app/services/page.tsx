@@ -84,7 +84,7 @@ export default function Certificate() {
                         return (
                             <div
                                 key={idx}
-                                className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden w-full flex flex-col justify-between hover:shadow-md transition-shadow duration-300"
+                                className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden w-full flex flex-col hover:shadow-md transition-shadow duration-300"
                             >
                                 {/* Image Container */}
                                 <div className="relative w-full h-56 bg-gray-200 overflow-hidden">
@@ -99,18 +99,16 @@ export default function Certificate() {
                                 </div>
 
                                 {/* Content Section */}
-                                <div className="p-6 sm:p-7 text-left flex flex-col flex-grow justify-between space-y-5">
-                                    <div className="space-y-2">
-                                        <h2 className="text-xl font-bold text-gray-900">
-                                            {cert.title}
-                                        </h2>
-                                        <p className="text-sm text-gray-600 line-clamp-1">
-                                            {cert.description || 'No description available.'}
-                                        </p>
-                                    </div>
+                                <div className="p-5 sm:p-6 text-left flex flex-col">
+                                    <h2 className="text-xl font-bold text-gray-900">
+                                        {cert.title}
+                                    </h2>
+                                    <p className="mt-1.5 text-sm text-gray-600 line-clamp-3 leading-relaxed">
+                                        {cert.description || 'No description available.'}
+                                    </p>
 
                                     {/* Action Buttons */}
-                                    <div className="flex flex-wrap items-center gap-3 pt-1">
+                                    <div className="mt-3.5 flex flex-wrap items-center gap-3">
                                         <Link
                                             href={`/services/${slug}`}
                                             className="inline-block px-4 py-2 bg-teal-900 hover:bg-teal-800 text-white rounded-md text-sm font-medium transition-colors"
