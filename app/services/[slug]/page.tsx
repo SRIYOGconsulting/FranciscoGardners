@@ -101,7 +101,7 @@ export default async function ServicePage({ params }: PageProps) {
   return (
     <main className="w-full bg-white text-gray-800">
       {/* 1. HERO SECTION WITH IMAGE PLACEHOLDER BACKDROP */}
-      <section className="relative w-full h-[400px] sm:h-[480px] bg-emerald-950/80 flex items-center justify-center text-center px-4 overflow-hidden">
+      <section className="relative w-full h-[400px] sm:h-[480px] bg-emerald-950/80 flex items-center justify-center text-center overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-30">
           <Image
             src={service.img}
@@ -112,7 +112,7 @@ export default async function ServicePage({ params }: PageProps) {
           />
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto text-white space-y-4">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 text-white space-y-4">
           <nav className="text-xs sm:text-sm font-medium text-emerald-200 space-x-2">
             <Link href="/" className="hover:underline">Home</Link>
             <span>&gt;</span>
@@ -121,7 +121,7 @@ export default async function ServicePage({ params }: PageProps) {
             <span className="text-white font-normal">{service.title}</span>
           </nav>
 
-          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight">
+          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight max-w-4xl mx-auto">
             {service.title} Services in San Francisco
           </h1>
 
@@ -132,32 +132,32 @@ export default async function ServicePage({ params }: PageProps) {
       </section>
 
       {/* 2. EXPERT DESCRIPTION SECTION */}
-      <section className="max-w-4xl mx-auto px-6 py-16 text-center space-y-6">
+      <section className="max-w-7xl mx-auto px-4 md:px-8 py-16 text-center space-y-6">
         <h2 className="text-2xl sm:text-3xl font-bold text-teal-900">
           Expert {service.title} in San Francisco
         </h2>
 
-        <p className="text-gray-600 text-base leading-relaxed">
+        <p className="text-gray-600 text-base leading-relaxed max-w-4xl mx-auto">
           Francisco Gardeners delivers high-quality {service.title.toLowerCase()} services to maintain beautiful, sustainable, and eco-conscious outdoor spaces across San Francisco. Our team manages everything from initial site analysis to flawless installation and ongoing care.
         </p>
 
-        <p className="text-gray-600 text-base leading-relaxed">
+        <p className="text-gray-600 text-base leading-relaxed max-w-4xl mx-auto">
           We use modern equipment, eco-friendly materials, and soil-specific techniques designed to withstand San Francisco coastal winds, fog, and microclimate variations.
         </p>
 
-        <p className="text-gray-600 text-base leading-relaxed">
+        <p className="text-gray-600 text-base leading-relaxed max-w-4xl mx-auto">
           Our tailored solutions keep your yard looking vibrant year-round while conserving water and complementing your home’s architecture.
         </p>
       </section>
 
       {/* 3. RELATED SERVICES SECTION */}
-      <section className="bg-gray-50 py-20 px-6 sm:px-10">
-        <div className="max-w-6xl mx-auto space-y-12">
+      <section className="bg-gray-50 py-20">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-12">
           <h2 className="text-2xl sm:text-3xl font-bold text-teal-900 text-center">
             Related Services
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {relatedServices.map((rel, index) => (
               <div
                 key={index}
@@ -177,7 +177,7 @@ export default async function ServicePage({ params }: PageProps) {
                     <h3 className="font-bold text-xl text-gray-900">
                       {rel.title}
                     </h3>
-                    <p className="text-sm text-gray-600 line-clamp-1">
+                    <p className="text-sm text-gray-600 leading-relaxed">
                       {rel.description}
                     </p>
                   </div>
@@ -204,12 +204,12 @@ export default async function ServicePage({ params }: PageProps) {
       </section>
 
       {/* 4. FREQUENTLY ASKED QUESTIONS SECTION */}
-      <section className="max-w-4xl mx-auto px-6 py-16 space-y-8">
+      <section className="max-w-7xl mx-auto px-4 md:px-8 py-16 space-y-8">
         <h2 className="text-2xl sm:text-3xl font-bold text-teal-900 text-center">
           Frequently Asked Questions
         </h2>
 
-        <div className="space-y-4">
+        <div className="space-y-4 max-w-4xl mx-auto">
           {faqs.map((faq, idx) => (
             <details
               key={idx}
