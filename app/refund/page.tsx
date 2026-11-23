@@ -5,7 +5,7 @@ import React from "react";
 export default function RefundPolicy() {
   return (
     <div className="w-full min-h-screen bg-white py-12 md:py-20">
-      <div className="max-w-5xl mx-auto px-4 md:px-8 space-y-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-8">
         
         {/* HEADER SECTION */}
         <div className="text-center max-w-3xl mx-auto mb-10">
