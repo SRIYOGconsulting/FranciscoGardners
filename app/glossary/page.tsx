@@ -1,392 +1,366 @@
-'use client'
+'use client';
+
 import React, { useState } from 'react';
 
+type Term = {
+    term: string;
+    definition: string;
+};
+
+type TermsByLetter = {
+    [key: string]: Term[];
+};
+
+const glossaryTerms: TermsByLetter = {
+    A: [
+        {
+            term: "Aeration",
+            definition: "The process of perforating the soil with small holes to allow air, water, and nutrients to penetrate deep into grass roots and relieve soil compaction."
+        },
+        {
+            term: "Arboriculture",
+            definition: "The cultivation, management, and study of individual trees, shrubs, vines, and other perennial woody plants in urban and residential landscapes."
+        },
+        {
+            term: "Annuals",
+            definition: "Plants that complete their entire life cycle—from germination to seed production—within a single growing season."
+        },
+        {
+            term: "Amendment (Soil)",
+            definition: "Organic or mineral material mixed into soil to improve its physical properties, such as water retention, permeability, drainage, and structure."
+        }
+    ],
+    B: [
+        {
+            term: "Backflow Preventer",
+            definition: "A plumbing device installed on irrigation systems to prevent contaminated garden water from flowing backward into clean municipal water lines."
+        },
+        {
+            term: "Beneficial Insects",
+            definition: "Natural predators like ladybugs, lacewings, and pollinators that control garden pests organically without the need for chemical pesticides."
+        },
+        {
+            term: "Bioswale",
+            definition: "A vegetated, shallow landscape depression designed to capture, filter, and slowly infiltrate stormwater runoff from roofs and driveways."
+        }
+    ],
+    C: [
+        {
+            term: "California Native Plants",
+            definition: "Flora indigenous to California that are naturally adapted to local soil, coastal fog, and summer drought conditions, requiring minimal water and maintenance."
+        },
+        {
+            term: "Canopy",
+            definition: "The upper layer of leaves and branches formed by mature trees that provides shade, wind protection, and habitat in an outdoor space."
+        },
+        {
+            term: "Compost",
+            definition: "Nutrient-rich, decomposed organic matter used as a natural fertilizer and soil conditioner to boost microbial life and plant health."
+        },
+        {
+            term: "Crown Thinning",
+            definition: "Selective pruning of tree branches to increase light penetration and air movement through the canopy while reducing wind resistance."
+        }
+    ],
+    D: [
+        {
+            term: "Dethatching",
+            definition: "The mechanical removal of thatch—a dense layer of dead grass stems and roots—that builds up between green turf and the soil surface."
+        },
+        {
+            term: "Drip Irrigation",
+            definition: "A high-efficiency watering method that delivers water slowly and directly to plant root zones through emitters, minimizing evaporation and runoff."
+        },
+        {
+            term: "Drought-Tolerant Landscaping",
+            definition: "Garden designs that utilize hardy, low-water plants and moisture-retaining mulches to thrive through dry Bay Area summers."
+        },
+        {
+            term: "Deadheading",
+            definition: "Removing faded or dead flowers from plants to encourage continuous blooming and maintain a tidy appearance."
+        }
+    ],
+    E: [
+        {
+            term: "Edging",
+            definition: "Creating a crisp, clean boundary between a lawn and adjacent garden beds, walkways, or driveways for a manicured finish."
+        },
+        {
+            term: "Erosion Control",
+            definition: "Landscaping techniques—such as terraced retaining walls, groundcovers, and root stabilization—used to prevent soil washout on sloped San Francisco properties."
+        },
+        {
+            term: "Evergreen",
+            definition: "Trees and shrubs that retain green foliage throughout all four seasons, providing year-round privacy and structure."
+        }
+    ],
+    F: [
+        {
+            term: "Foliar Feeding",
+            definition: "Applying liquid organic nutrients directly onto plant leaves for rapid absorption of essential trace minerals."
+        },
+        {
+            term: "French Drain",
+            definition: "A gravel-filled trench containing a perforated pipe that redirects surface water and groundwater away from foundations and soggy lawns."
+        },
+        {
+            term: "Frost Tender",
+            definition: "Plants sensitive to freezing temperatures that require sheltered microclimates or winter protection during cold Bay Area nights."
+        }
+    ],
+    G: [
+        {
+            term: "Grading",
+            definition: "Reshaping and leveling the slope of soil on a property to ensure proper water drainage away from structures and prepare beds for planting."
+        },
+        {
+            term: "Green Waste Recycling",
+            definition: "Diverting grass clippings, pruned branches, and organic yard debris to municipal composting facilities rather than landfills."
+        },
+        {
+            term: "Groundcover",
+            definition: "Low-growing, spreading plants used to blanket bare soil, suppress weeds, retain moisture, and reduce turfgrass lawn areas."
+        }
+    ],
+    H: [
+        {
+            term: "Hardscaping",
+            definition: "The non-living architectural elements of a landscape, including stone patios, retaining walls, pathways, decks, and pergolas."
+        },
+        {
+            term: "Horticulture",
+            definition: "The science and art of growing fruits, vegetables, flowers, and ornamental plants for aesthetic and functional landscapes."
+        },
+        {
+            term: "Humus",
+            definition: "The dark, stable organic component of soil formed by the complete decomposition of plant and animal matter."
+        }
+    ],
+    I: [
+        {
+            term: "Integrated Pest Management (IPM)",
+            definition: "An eco-friendly pest control strategy combining biological controls, habitat manipulation, and organic treatments to minimize environmental impact."
+        },
+        {
+            term: "Irrigation Zoning",
+            definition: "Dividing a sprinkler or drip system into separate sections based on plant water needs, sun exposure, and soil type."
+        }
+    ],
+    J: [
+        {
+            term: "Japanese Maple (Acer palmatum)",
+            definition: "A prized ornamental tree valued for its delicate foliage, sculptural branching, and vibrant seasonal color in sheltered Bay Area gardens."
+        }
+    ],
+    K: [
+        {
+            term: "Keystone Species",
+            definition: "Native plants—such as California oaks and sages—that play a critical role in supporting local pollinators, birds, and ecosystem balance."
+        }
+    ],
+    L: [
+        {
+            term: "Landscape Lighting",
+            definition: "Low-voltage LED outdoor illumination used to highlight architectural trees, pathways, and patios while enhancing nighttime safety."
+        },
+        {
+            term: "Loam",
+            definition: "An ideal, fertile garden soil composed of a balanced mixture of sand, silt, and clay that drains well while holding nutrients."
+        },
+        {
+            term: "Living Wall",
+            definition: "A vertical garden structure mounted on interior or exterior walls, ideal for maximizing greenery in compact urban spaces."
+        }
+    ],
+    M: [
+        {
+            term: "Microclimate",
+            definition: "Localized climate variations within a neighborhood or yard—such as San Francisco’s foggy coastal zones versus sunny inland slopes—that dictate plant selection."
+        },
+        {
+            term: "Mulching",
+            definition: "Spreading a protective layer of bark, wood chips, or compost over soil to lock in moisture, regulate root temperature, and block weeds."
+        },
+        {
+            term: "Mycorrhizae",
+            definition: "Beneficial soil fungi that form symbiotic relationships with plant roots, dramatically increasing water and nutrient uptake."
+        }
+    ],
+    N: [
+        {
+            term: "Nitrogen Fixation",
+            definition: "A natural process in which certain plants and soil bacteria convert atmospheric nitrogen into nutrients usable by surrounding flora."
+        },
+        {
+            term: "Naturalized Planting",
+            definition: "A design style that arranges hardy perennials and grasses in organic drifts to mimic wild meadows and coastal hillsides."
+        }
+    ],
+    O: [
+        {
+            term: "Organic Fertilizer",
+            definition: "Plant- or mineral-derived nutrients (such as kelp meal, bone meal, and compost tea) that feed soil biology safely for children and pets."
+        },
+        {
+            term: "Overseeding",
+            definition: "Spreading new grass seed directly over an existing lawn without turning the soil to thicken turf density and fill bare patches."
+        }
+    ],
+    P: [
+        {
+            term: "Perennials",
+            definition: "Plants that live for more than two years, typically regrowing from the same root system each spring."
+        },
+        {
+            term: "Permeable Pavers",
+            definition: "Interlocking hardscape stones designed with porous joints that allow rainwater to filter naturally into the ground below."
+        },
+        {
+            term: "pH Balance",
+            definition: "A measure of soil acidity or alkalinity (on a scale of 0–14) that determines how readily plants can absorb soil nutrients."
+        },
+        {
+            term: "Pruning",
+            definition: "The targeted removal of dead, damaged, or overgrown branches to promote healthy plant structure, flowering, and safety."
+        }
+    ],
+    Q: [
+        {
+            term: "Quick-Connect Valve",
+            definition: "A specialized underground irrigation access point allowing gardeners to attach hoses or sprinklers anywhere across large estates."
+        }
+    ],
+    R: [
+        {
+            term: "Rain Sensor",
+            definition: "A smart irrigation attachment that automatically pauses scheduled watering cycles during and after rainfall to conserve water."
+        },
+        {
+            term: "Retaining Wall",
+            definition: "A engineered stone, timber, or concrete wall built to hold back sloped earth and create usable level garden terraces."
+        },
+        {
+            term: "Root Flare",
+            definition: "The natural widening at the base of a tree trunk where roots spread outward; keeping it exposed prevents bark rot and girdling."
+        }
+    ],
+    S: [
+        {
+            term: "Smart Irrigation Controller",
+            definition: "A Wi-Fi-enabled watering timer that adjusts schedules automatically using real-time local weather, soil moisture, and evaporation data."
+        },
+        {
+            term: "Softscaping",
+            definition: "The living horticultural elements of a landscape, including trees, shrubs, perennials, turfgrass, and seasonal flower beds."
+        },
+        {
+            term: "Soil Compaction",
+            definition: "The pressing together of soil particles from foot traffic or heavy equipment, reducing pore space for air, water, and root growth."
+        }
+    ],
+    T: [
+        {
+            term: "Topdressing",
+            definition: "Applying a thin layer of compost, sand, or screened topsoil over a lawn or garden bed to smooth surfaces and enrich soil fertility."
+        },
+        {
+            term: "Turfgrass Management",
+            definition: "The seasonal care of lawns—including mowing height calibration, organic fertilization, aeration, and weed suppression."
+        },
+        {
+            term: "Tree Risk Assessment",
+            definition: "A systematic inspection performed by a certified arborist to evaluate structural stability and prevent branch or root failure."
+        }
+    ],
+    U: [
+        {
+            term: "Understory",
+            definition: "Shade-tolerant shrubs, ferns, and groundcovers that thrive beneath the canopy of taller established trees."
+        },
+        {
+            term: "Urban Forestry",
+            definition: "The care and management of tree populations in urban settings to improve air quality, shade, and neighborhood aesthetics."
+        }
+    ],
+    V: [
+        {
+            term: "Vermicompost",
+            definition: "Nutrient-dense organic fertilizer produced through worm composting, prized for boosting microbial activity in container and rooftop gardens."
+        },
+        {
+            term: "Vertical Gardening",
+            definition: "Growing plants upward using trellises, arbors, or wall planters to maximize greenery in narrow side yards and patios."
+        }
+    ],
+    W: [
+        {
+            term: "Water-Wise Landscaping",
+            definition: "A holistic garden approach combining hydro-zoning, smart drip controllers, and native plants to cut outdoor water use by up to 50%."
+        },
+        {
+            term: "Weed Barrier",
+            definition: "Breathable organic cardboard or geotextile fabric laid beneath mulch to block weed germination while allowing water penetration."
+        },
+        {
+            term: "Windbreak",
+            definition: "A strategic row of coastal-hardy trees or dense shrubs planted to shield delicate gardens from prevailing San Francisco winds."
+        }
+    ],
+    X: [
+        {
+            term: "Xeriscaping",
+            definition: "A landscaping method developed for dry climates that eliminates or minimizes the need for supplemental irrigation."
+        }
+    ],
+    Y: [
+        {
+            term: "Yard Renovation",
+            definition: "A comprehensive overhaul of an overgrown or outdated outdoor space, including clearing, soil prep, hardscaping, and new plantings."
+        }
+    ],
+    Z: [
+        {
+            term: "Zero-Emission Equipment",
+            definition: "Commercial-grade battery-powered mowers, trimmers, and blowers that eliminate exhaust fumes and dramatically reduce neighborhood noise."
+        }
+    ]
+};
 
 export default function Glossary() {
     const [selectedLetter, setSelectedLetter] = useState<string>('A');
-    type Term = {
-        term : string ,
-        definition : string
-    }
-    type TermsByLetter = {
-        [key: string]: Term[]; // keys like 'A', 'B', 'C'
-    };
-    const glossaryTerms:TermsByLetter = {
-        A: [
-            {
-                term: "API (Application Programming Interface)",
-                definition: "A set of protocols and tools that allows different software applications to communicate with each other."
-            },
-            {
-                term: "Agile Methodology",
-                definition: "An iterative approach to software development that emphasizes flexibility, collaboration, and customer feedback."
-            },
-            {
-                term: "Authentication",
-                definition: "The process of verifying the identity of a user or system before granting access to resources."
-            },
-            {
-                term: "AWS (Amazon Web Services)",
-                definition: "A comprehensive cloud computing platform that provides on-demand services like storage, computing power, and databases."
-            }
-        ],
-        B: [
-            {
-                term: "Backend",
-                definition: "The server-side of a website or application that handles data processing, storage, and business logic."
-            },
-            {
-                term: "Bootstrap",
-                definition: "A popular front-end framework for developing responsive and mobile-first websites."
-            },
-            {
-                term: "Bug",
-                definition: "An error or flaw in software that causes it to produce incorrect or unexpected results."
-            },
-            {
-                term: "Bandwidth",
-                definition: "The maximum rate of data transfer across a network connection, typically measured in Mbps or Gbps."
-            }
-        ],
-        C: [
-            {
-                term: "Cache",
-                definition: "A temporary storage area that saves frequently accessed website data to improve load times and performance."
-            },
-            {
-                term: "CMS (Content Management System)",
-                definition: "A software platform that allows users to create, edit, organize, and publish digital content without needing to code."
-            },
-            {
-                term: "Cloud Hosting",
-                definition: "Hosting website data on virtual cloud servers, for scalability, flexibility, and cost-effectiveness."
-            },
-            {
-                term: "CSS (Cascading Style Sheets)",
-                definition: "A web language that controls the layout and visual style of content, including fonts, colors, spacing, and alignment."
-            },
-            {
-                term: "Cybersecurity",
-                definition: "The protection of digital assets and user data from unauthorized access, attacks, or breaches through secure CMS practices."
-            },
-            {
-                term: "CTA (Call to Action)",
-                definition: "A prompt, such as a button or link, that encourages users to take a specific action like signing up or purchasing."
-            }
-        ],
-        D: [
-            {
-                term: "Database",
-                definition: "An organized collection of structured data that can be easily accessed, managed, and updated."
-            },
-            {
-                term: "DevOps",
-                definition: "A set of practices that combines software development and IT operations to shorten development cycles."
-            },
-            {
-                term: "DNS (Domain Name System)",
-                definition: "A system that translates domain names into IP addresses so browsers can load websites."
-            },
-            {
-                term: "Docker",
-                definition: "A platform that uses containerization to package applications and their dependencies for consistent deployment."
-            }
-        ],
-        E: [
-            {
-                term: "E-commerce",
-                definition: "The buying and selling of goods or services over the internet through online platforms."
-            },
-            {
-                term: "Encryption",
-                definition: "The process of converting data into a coded format to prevent unauthorized access."
-            },
-            {
-                term: "ERP (Enterprise Resource Planning)",
-                definition: "Integrated software that manages core business processes like accounting, HR, inventory, and supply chain."
-            }
-        ],
-        F: [
-            {
-                term: "Frontend",
-                definition: "The client-side of a website or application that users interact with directly through their browser."
-            },
-            {
-                term: "Framework",
-                definition: "A pre-built structure or set of tools that helps developers build applications more efficiently."
-            },
-            {
-                term: "Firewall",
-                definition: "A network security system that monitors and controls incoming and outgoing traffic based on security rules."
-            },
-            {
-                term: "FTP (File Transfer Protocol)",
-                definition: "A standard protocol used to transfer files between a client and server over a network."
-            }
-        ],
-        G: [
-            {
-                term: "Git",
-                definition: "A version control system that tracks changes in code and enables collaboration among developers."
-            },
-            {
-                term: "GUI (Graphical User Interface)",
-                definition: "A visual way for users to interact with software through icons, buttons, and windows."
-            },
-            {
-                term: "GitHub",
-                definition: "A web-based platform for version control and collaboration using Git repositories."
-            }
-        ],
-        H: [
-            {
-                term: "HTML (HyperText Markup Language)",
-                definition: "The standard markup language used to create and structure content on the web."
-            },
-            {
-                term: "HTTP/HTTPS",
-                definition: "Protocols for transmitting data over the web; HTTPS is the secure version with encryption."
-            },
-            {
-                term: "Hosting",
-                definition: "A service that provides server space and resources for websites to be accessible on the internet."
-            }
-        ],
-        I: [
-            {
-                term: "IDE (Integrated Development Environment)",
-                definition: "A software application that provides comprehensive tools for software development in one place."
-            },
-            {
-                term: "IT Consulting",
-                definition: "Professional advisory services that help organizations optimize their technology infrastructure and strategies."
-            },
-            {
-                term: "IoT (Internet of Things)",
-                definition: "A network of physical devices connected to the internet, collecting and sharing data."
-            }
-        ],
-        J: [
-            {
-                term: "JavaScript",
-                definition: "A programming language that enables interactive and dynamic content on websites."
-            },
-            {
-                term: "JSON (JavaScript Object Notation)",
-                definition: "A lightweight data format used for storing and exchanging data between systems."
-            },
-            {
-                term: "jQuery",
-                definition: "A fast JavaScript library that simplifies HTML document manipulation, event handling, and animation."
-            }
-        ],
-        K: [
-            {
-                term: "Kubernetes",
-                definition: "An open-source platform for automating deployment, scaling, and management of containerized applications."
-            },
-            {
-                term: "Keyword",
-                definition: "A specific word or phrase that users type into search engines, crucial for SEO optimization."
-            }
-        ],
-        L: [
-            {
-                term: "Linux",
-                definition: "An open-source operating system widely used for servers, development, and enterprise applications."
-            },
-            {
-                term: "Load Balancing",
-                definition: "The process of distributing network traffic across multiple servers to ensure optimal performance."
-            }
-        ],
-        M: [
-            {
-                term: "Machine Learning",
-                definition: "A subset of AI that enables systems to learn and improve from experience without explicit programming."
-            },
-            {
-                term: "MySQL",
-                definition: "An open-source relational database management system commonly used for web applications."
-            },
-            {
-                term: "Metadata",
-                definition: "Data that provides information about other data, such as file creation dates or image properties."
-            }
-        ],
-        N: [
-            {
-                term: "Node.js",
-                definition: "A JavaScript runtime environment that allows developers to run JavaScript on the server-side."
-            },
-            {
-                term: "NoSQL",
-                definition: "A database system that stores data in formats other than traditional relational tables."
-            }
-        ],
-        O: [
-            {
-                term: "Open Source",
-                definition: "Software with source code that anyone can inspect, modify, and enhance."
-            },
-            {
-                term: "Operating System",
-                definition: "System software that manages computer hardware and software resources, like Windows, macOS, or Linux."
-            }
-        ],
-        P: [
-            {
-                term: "PHP",
-                definition: "A server-side scripting language widely used for web development and dynamic content generation."
-            },
-            {
-                term: "PWA (Progressive Web App)",
-                definition: "A type of web application that works offline and provides an app-like experience on mobile devices."
-            },
-            {
-                term: "Python",
-                definition: "A high-level programming language known for its simplicity and versatility in web, data science, and AI."
-            }
-        ],
-        Q: [
-            {
-                term: "Query",
-                definition: "A request for data or information from a database, typically written in SQL."
-            },
-            {
-                term: "QA (Quality Assurance)",
-                definition: "The process of testing software to ensure it meets quality standards and functions correctly."
-            }
-        ],
-        R: [
-            {
-                term: "React",
-                definition: "A JavaScript library for building user interfaces, particularly single-page applications."
-            },
-            {
-                term: "Responsive Design",
-                definition: "A web design approach that ensures websites adapt seamlessly to different screen sizes and devices."
-            },
-            {
-                term: "REST API",
-                definition: "An architectural style for APIs that uses HTTP requests to access and manipulate data."
-            }
-        ],
-        S: [
-            {
-                term: "SaaS (Software as a Service)",
-                definition: "Cloud-based software that users access via the internet, typically through a subscription model."
-            },
-            {
-                term: "SEO (Search Engine Optimization)",
-                definition: "The practice of optimizing websites to rank higher in search engine results and increase organic traffic."
-            },
-            {
-                term: "SSL Certificate",
-                definition: "A digital certificate that authenticates a website's identity and enables encrypted connections."
-            },
-            {
-                term: "SQL (Structured Query Language)",
-                definition: "A standard language for managing and manipulating relational databases."
-            },
-            {
-                term: "Scrum",
-                definition: "An agile framework for managing complex projects through iterative sprints and team collaboration."
-            }
-        ],
-        T: [
-            {
-                term: "TypeScript",
-                definition: "A superset of JavaScript that adds static typing for improved code quality and developer experience."
-            },
-            {
-                term: "TLS (Transport Layer Security)",
-                definition: "A cryptographic protocol that provides secure communication over a computer network."
-            }
-        ],
-        U: [
-            {
-                term: "UI (User Interface)",
-                definition: "The visual elements and layout that users interact with in a software application or website."
-            },
-            {
-                term: "UX (User Experience)",
-                definition: "The overall experience a user has when interacting with a product, focusing on usability and satisfaction."
-            },
-            {
-                term: "URL (Uniform Resource Locator)",
-                definition: "The address used to access resources on the internet, commonly known as a web address."
-            }
-        ],
-        V: [
-            {
-                term: "Version Control",
-                definition: "A system that tracks changes to files over time, allowing multiple developers to collaborate efficiently."
-            },
-            {
-                term: "Virtual Machine",
-                definition: "A software emulation of a physical computer that runs an operating system and applications."
-            },
-            {
-                term: "VPN (Virtual Private Network)",
-                definition: "A secure connection that encrypts internet traffic and protects online privacy."
-            }
-        ],
-        W: [
-            {
-                term: "Web Development",
-                definition: "The process of creating, building, and maintaining websites and web applications."
-            },
-            {
-                term: "WordPress",
-                definition: "A popular open-source content management system used for building websites and blogs."
-            },
-            {
-                term: "Wireframe",
-                definition: "A visual blueprint or skeletal outline of a website or app's layout and structure."
-            }
-        ],
-        X: [
-            {
-                term: "XML (Extensible Markup Language)",
-                definition: "A markup language that defines rules for encoding documents in a format that is both human and machine-readable."
-            }
-        ],
-        Y: [
-            {
-                term: "YAML",
-                definition: "A human-readable data serialization language commonly used for configuration files."
-            }
-        ],
-        Z: [
-            {
-                term: "Zero-Day Vulnerability",
-                definition: "A security flaw in software that is exploited by attackers before the developer has a chance to fix it."
-            }
-        ]
-    };
 
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     const availableLetters = Object.keys(glossaryTerms);
 
     return (
-        <div className="h-full">
-            {/* Header Section */}
-            {/* <Ribbon name="Glossary" showfont={false}/> */}
+        <div className="w-full min-h-screen bg-white py-12 md:py-20">
+            <div className="max-w-7xl mx-auto px-4 md:px-8">
+                
+                {/* HERO HEADER */}
+                <div className="text-center max-w-3xl mx-auto mb-12">
+                    <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
+                        Horticulture & Care Guide
+                    </span>
+                    <h1 className="text-3xl md:text-5xl font-extrabold text-[#0D402B] tracking-tight mt-4">
+                        Landscaping &amp; Garden Glossary
+                    </h1>
+                    <p className="mt-4 text-base md:text-lg text-gray-600 leading-relaxed">
+                        Explore key terms in sustainable gardening, tree care, soil health, and smart irrigation used by our San Francisco specialists.
+                    </p>
+                </div>
 
-            <div className="max-w-7xl mx-auto px-4 md:px-8 pb-16">
                 {/* Alphabet Navigation */}
-                <div className="card rounded-lg py-4 px-6 mb-8">
-                    <div className="flex flex-wrap justify-center gap-3">
+                <div className="bg-[#F4FAF6] border border-emerald-100 rounded-2xl py-4 px-6 mb-10 shadow-sm">
+                    <div className="flex flex-wrap justify-center gap-2 md:gap-2.5">
                         {alphabet.map((letter) => (
                             <button
                                 key={letter}
                                 onClick={() => availableLetters.includes(letter) && setSelectedLetter(letter)}
-                                className={`w-8 h-8 flex items-center justify-center font-bold text-sm rounded transition-all ${
+                                className={`w-9 h-9 flex items-center justify-center font-bold text-sm rounded-lg transition-all ${
                                     availableLetters.includes(letter)
                                         ? selectedLetter === letter
-                                            ? 'bg-teal-700 text-white'
-                                            : 'bg-white text-gray-800 hover:bg-teal-100'
+                                            ? 'bg-[#0D402B] text-white shadow-sm'
+                                            : 'bg-white text-[#0D402B] border border-emerald-100 hover:bg-emerald-100'
                                         : 'text-gray-400 cursor-not-allowed'
                                 }`}
                                 disabled={!availableLetters.includes(letter)}
@@ -397,17 +371,27 @@ export default function Glossary() {
                     </div>
                 </div>
 
+                {/* Selected Letter Indicator */}
+                <div className="flex items-center gap-3 mb-6">
+                    <span className="w-10 h-10 rounded-xl bg-[#10B981] text-white font-extrabold text-xl flex items-center justify-center shadow-sm">
+                        {selectedLetter}
+                    </span>
+                    <h2 className="text-xl font-bold text-[#0D402B]">
+                        Terms starting with &ldquo;{selectedLetter}&rdquo;
+                    </h2>
+                </div>
+
                 {/* Terms Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {glossaryTerms[selectedLetter]?.map((item, index) => (
                         <div
                             key={index}
-                            className="footer border border-gray-300 rounded-lg p-6 hover:shadow-lg transition-shadow"
+                            className="bg-white border border-emerald-100 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all"
                         >
-                            <h3 className="text-lg font-bold mb-3">
+                            <h3 className="text-xl font-bold text-[#0D402B] mb-2">
                                 {item.term}
                             </h3>
-                            <p className=" text-sm text2 leading-relaxed">
+                            <p className="text-sm md:text-base text-gray-700 leading-relaxed">
                                 {item.definition}
                             </p>
                         </div>
