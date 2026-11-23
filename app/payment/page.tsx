@@ -24,19 +24,19 @@ const Payment = () => {
             <Image
               width={600}
               height={800}
-              src="/images/payment/image.webp"
+              src="/logo/bank.svg"
               alt="Sriyog Consulting Logo"
               className="w-60 sm:w-56 mb-5 mx-auto lg:mx-0"
             />
 
             <p className="flex flex-col text-xl">
-              <span>Account Name:</span> <span className="font-semibold">Sriyog Consulting Pvt Ltd.</span>
+              <span>Account Name:</span> <span className="font-semibold">Francisco Gardeners</span>
             </p>
             <p className="text-xl">
               Account number: 00701017502051
             </p>
             <p className="text-xl">
-              Branch: Kathmandu
+              Branch: Market Street Branch, San Francisco, CA
             </p>
             <p className="text-xl">
               SWIFT CODE: NARBNPKA
@@ -44,12 +44,12 @@ const Payment = () => {
             <p className="text-xl">
               URL:{" "}
               <a
-                href="https://www.nabilbank.com"
+                href="https://www.bankofsf.com"
                 target="_blank"
                 rel="noreferrer"
                 className=" underline"
               >
-                www.nabilbank.com
+                https://www.bankofsf.com
               </a>
             </p>
             <p className="pt-8 text-2xl ">
@@ -67,7 +67,7 @@ const Payment = () => {
            <Image
               width={600}
               height={800}
-              src="/images/payment/image2.webp"
+              src="/payment/image.webp"
               alt="Payment QR"
               className="w-full h-full rounded-3xl object-contain "
             />
