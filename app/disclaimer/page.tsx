@@ -1,160 +1,86 @@
-import React from "react";
-// import Ribbon from "../../components/Ribbon";
+'use client';
+
+import React from 'react';
 
 const Disclaimer = () => {
   return (
-    <div className="h-full">
-      {/* Header / Ribbon */}
-      {/* <Ribbon name="Disclaimer" showfont={false}/> */}
+    <div className="w-full min-h-screen bg-white py-12 md:py-20">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-8">
+        
+        {/* HEADER SECTION */}
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-100">
+            Legal & Compliance
+          </span>
+          <h1 className="text-3xl md:text-5xl font-extrabold text-[#0D402B] tracking-tight mt-4">
+            Disclaimer
+          </h1>
+          <p className="mt-4 text-base md:text-lg text-gray-600 leading-relaxed">
+            Important information regarding the use of our website, landscaping advice, service estimates, and third-party resources.
+          </p>
+        </div>
 
-      {/* Content */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 mb-12 space-y-6">
-        <section className="footer p-6 rounded-xl shadow-md space-y-6">
-
-          <p className="about leading-relaxed">
-            <span className="font-medium">Effective Date:</span> 1st June, 2025
+        {/* CONTENT CARD */}
+        <section className="bg-white border border-emerald-100 rounded-3xl p-8 md:p-12 shadow-sm space-y-8 text-gray-700">
+          
+          <p className="text-sm font-semibold text-emerald-600">
+            Effective Date: January 1, 2026
           </p>
 
-          <p className="about leading-relaxed">
-            SRIYOG Consulting Pvt. Ltd. (also referred to as “us”, “we” or “our”) operates the 
-            www.sriyog.com website and mobile application (the “Service”). This Privacy Policy 
-            describes our policies regarding the collection, use, and disclosure of personal data 
-            while using the Service.
+          <p className="leading-relaxed text-base md:text-lg">
+            The information provided by <span className="font-bold text-[#0D402B]">Francisco Gardeners</span> (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) on www.franciscogardeners.com (the &ldquo;Site&rdquo;) is for general informational purposes only. All information on the Site is provided in good faith; however, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the Site.
           </p>
 
-          <p className="about leading-relaxed">
-            By using Sriyog.com, you agree to the collection and use of information as described 
-            in this Privacy Policy. Terms defined here have the same meaning as in our Terms & 
-            Conditions unless otherwise redefined.
-          </p>
-
-          {/* Section: Uses and Collection of Information */}
+          {/* SECTION 1 */}
           <div>
-            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Uses and Collection of Information</h2>
-            <p className="about leading-relaxed">
-              We collect different types of information for various purposes to improve our services for you.
+            <h2 className="text-2xl font-bold text-[#0D402B] mb-3">General Gardening & Horticultural Advice</h2>
+            <p className="leading-relaxed">
+              Any plant care guides, seasonal maintenance tips, soil recommendations, or landscaping ideas published on our Site are intended strictly as general educational guidance. San Francisco&apos;s diverse microclimates, soil compositions, and property-specific conditions vary significantly. Content on this website does not constitute a formal horticultural assessment or site-specific architectural plan.
             </p>
           </div>
 
-          {/* Section: Types of Collected Data */}
+          {/* SECTION 2 */}
           <div>
-            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Types of Collected Data</h2>
-
-            <h3 className="text-lg font-medium text-teal-600 mt-3">Personal Information</h3>
-            <p className="about leading-relaxed">
-              To create your identity, you may provide personally identifiable information that we use to analyze and improve our services, including for marketing purposes. This includes:
-            </p>
-            <ul className="list-disc list-inside about space-y-1">
-              <li>Mobile Number</li>
-              <li>Email Address</li>
-              <li>First Name and Last Name</li>
-              <li>Address, Province, City</li>
-              <li>Cookies and Usage Data</li>
-              <li>Skills and Expertise</li>
-            </ul>
-
-            <h3 className="text-lg font-medium text-teal-600 mt-4">Usage Information</h3>
-            <p className="about leading-relaxed">
-              We may collect Usage Data, including IP address, browser details, pages visited, time spent, engagements, and unique device identifiers (UDIDs).
-            </p>
-          </div>
-
-          {/* Section: Tracking and Cookies Data */}
-          <div>
-            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Tracking and Cookies Data</h2>
-            <p className="about leading-relaxed">
-              We use cookies and similar tracking technologies to track activity and store certain information. Cookies may include anonymous unique identifiers. You can refuse cookies via your browser, but some services may not function properly.
-            </p>
-
-            <h3 className="text-lg font-medium text-teal-600 mt-4">Examples of Cookies</h3>
-            <ul className="list-disc list-inside about space-y-1">
-              <li>Session Cookies – used to operate our services</li>
-              <li>Preference Cookies – used to remember preferences and settings</li>
-              <li>Security Cookies – used for security purposes</li>
+            <h2 className="text-2xl font-bold text-[#0D402B] mb-3">Service Estimates & Project Outcomes</h2>
+            <ul className="list-disc list-inside space-y-2 pl-2">
+              <li><span className="font-semibold text-[#0D402B]">Online Quotes:</span> Preliminary pricing or service estimates generated through our website or contact forms are non-binding until an on-site property inspection is completed by our team.</li>
+              <li><span className="font-semibold text-[#0D402B]">Natural Variations:</span> Because landscaping involves living plants, trees, and natural materials, growth rates, seasonal appearances, and weather-related outcomes cannot be guaranteed beyond our written service warranty.</li>
+              <li><span className="font-semibold text-[#0D402B]">Portfolio Visuals:</span> Project photos displayed on the Site represent completed client gardens and may not reflect identical results for every yard due to sunlight, irrigation, and ongoing care differences.</li>
             </ul>
           </div>
 
-          {/* Section: Uses of Data */}
+          {/* SECTION 3 */}
           <div>
-            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Uses of Data</h2>
-            <ul className="list-disc list-inside about space-y-1">
-              <li>Providing and maintaining the service</li>
-              <li>Notifying you about changes to the service</li>
-              <li>Allowing participation in interactive features</li>
-              <li>Providing customer care and support</li>
-              <li>Providing analysis or valuable information to improve the service</li>
-              <li>Monitoring service usage</li>
-              <li>Detecting, preventing, and addressing technical issues</li>
-            </ul>
-          </div>
-
-          {/* Section: Transfer of Data */}
-          <div>
-            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Transfer of Data</h2>
-            <p className="about leading-relaxed">
-              Your information may be transferred and maintained on servers. By submitting data, you consent to its transfer to servers in Nepal. We take necessary steps to ensure data security.
+            <h2 className="text-2xl font-bold text-[#0D402B] mb-3">External Links Disclaimer</h2>
+            <p className="leading-relaxed">
+              The Site may contain links to external websites, nursery suppliers, municipal water conservation guidelines, or third-party tools that are not provided or maintained by Francisco Gardeners. We do not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites.
             </p>
           </div>
 
-          {/* Section: Disclosure of Data */}
+          {/* SECTION 4 */}
           <div>
-            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Disclosure of Data</h2>
-            <p className="about leading-relaxed">SRIYOG Consulting may disclose your data in good faith to:</p>
-            <ul className="list-disc list-inside about space-y-1">
-              <li>Comply with legal obligations</li>
-              <li>Protect and defend the rights or property of SRIYOG Consulting</li>
-              <li>Prevent or investigate possible wrongdoing in connection with the Service</li>
-              <li>Protect the personal safety of users or the public</li>
-              <li>Protect against legal liability</li>
-            </ul>
-          </div>
-
-          {/* Section: Security of Data */}
-          <div>
-            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Security of Data</h2>
-            <p className="about leading-relaxed">
-              While we work to protect your data, no method of online transmission or electronic storage is 100% secure.
+            <h2 className="text-2xl font-bold text-[#0D402B] mb-3">Limitation of Liability</h2>
+            <p className="leading-relaxed">
+              Under no circumstance shall Francisco Gardeners, its employees, or its contractors have any liability to you for any loss or damage of any kind incurred as a result of the use of the Site or reliance on any information provided on the Site. Your use of the Site and your reliance on any information on the Site is solely at your own risk.
             </p>
           </div>
 
-          {/* Section: Service Providers */}
+          {/* SECTION 5 */}
           <div>
-            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Service Providers</h2>
-            <p className="about leading-relaxed">
-              Third-party companies and individuals may provide services on our behalf. They may access personal data but are obligated not to misuse it.
+            <h2 className="text-2xl font-bold text-[#0D402B] mb-3">Changes to This Disclaimer</h2>
+            <p className="leading-relaxed">
+              We reserve the right to modify or update this Disclaimer at any time without prior notice. Any revisions will be posted on this page with an updated &ldquo;Effective Date.&rdquo;
             </p>
           </div>
 
-          {/* Section: Other Sites */}
-          <div>
-            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Other Sites</h2>
-            <p className="about leading-relaxed">
-              Our Service may contain links to third-party websites. We are not responsible for their content, privacy policies, or practices.
-            </p>
-          </div>
-
-          {/* Section: Children’s Privacy */}
-          <div>
-            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Children’s Privacy</h2>
-            <p className="about leading-relaxed">
-              We do not knowingly collect personal data from anyone under 18. If discovered, we will remove such data.
-            </p>
-          </div>
-
-          {/* Section: Changes to This Privacy Policy */}
-          <div>
-            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Changes to This Privacy Policy</h2>
-            <p className="about leading-relaxed">
-              We may update this Privacy Policy and will notify you via email or prominent notice before changes take effect. The updated effective date will also be posted.
-            </p>
-          </div>
-
-          {/* Section: Contact Us */}
-          <div>
-            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Contact Us</h2>
-            <p className="about leading-relaxed">
-              Email: privacy@sriyog.com
-            </p>
+          {/* SECTION 6 */}
+          <div className="pt-6 border-t border-emerald-100">
+            <h2 className="text-2xl font-bold text-[#0D402B] mb-3">Contact Us</h2>
+            <div className="space-y-1.5 text-sm md:text-base">
+              <p><span className="font-semibold text-[#0D402B]">Email:</span> info@franciscogardeners.com</p>
+              <p><span className="font-semibold text-[#0D402B]">Phone:</span> +1 (415) 555-0198</p>
+              <p><span className="font-semibold text-[#0D402B]">Address:</span> Francisco Gardeners, 1485 Market St, San Francisco, CA 94103</p>
+            </div>
           </div>
 
         </section>
