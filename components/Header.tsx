@@ -3,7 +3,8 @@
 
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useMemo } from "react";
+
 
 const Header = () => {
   const [darkIcon, setDarkIcon] = useState(true);
@@ -14,6 +15,30 @@ const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
   const popupRef = useRef<HTMLDivElement>(null);
+
+  const SITE_PAGES = [
+  { title: "Home", href: "/", keywords: ["home", "main", "gardeners", "francisco"] },
+  { title: "About", href: "/about", keywords: ["about", "story", "mission", "who we are"] },
+  { title: "Services", href: "/services", keywords: ["services", "landscaping", "lawn", "mowing", "pruning", "garden"] },
+  { title: "Feedback", href: "/feedback", keywords: ["feedback", "review", "rating", "testimonial"] },
+  { title: "Team", href: "/team", keywords: ["team", "staff", "gardeners", "people", "crew"] },
+  { title: "Contact", href: "/contact", keywords: ["contact", "quote", "email", "phone", "address", "location"] },
+  { title: "Career", href: "/career", keywords: ["career", "jobs", "hiring", "work", "apply"] },
+  { title: "Notice", href: "/notice", keywords: ["notice", "news", "announcements", "updates"] },
+];
+
+
+const desktopSearchRef = useRef<HTMLDivElement>(null);
+  
+const searchResult = useMemo(() => {
+  const q = searchQuery.trim().toLowerCase;
+  if(!q) return [];
+  return SITE_PAGES.filter(
+    (item) => 
+      item.title.toLowerCase().include(q) || 
+       
+  )
+})
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("Theme");
