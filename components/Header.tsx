@@ -1,10 +1,86 @@
-
 "use client";
 
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import React, { useEffect, useState, useRef, useMemo } from "react";
 
+interface SearchItem {
+  title: string;
+  href: string;
+  category: "Page" | "Service" | "Company";
+  description: string;
+  keywords: string[];
+}
+
+const SEARCH_ITEMS: SearchItem[] = [
+  {
+    title: "Home",
+    href: "/",
+    category: "Page",
+    description: "Francisco Gardeners homepage and overview.",
+    keywords: ["home", "main", "gardeners", "francisco", "start"],
+  },
+  {
+    title: "About Us",
+    href: "/about",
+    category: "Company",
+    description: "Our story, mission, and gardening standards.",
+    keywords: ["about", "story", "mission", "who we are", "history"],
+  },
+  {
+    title: "Services",
+    href: "/services",
+    category: "Service",
+    description: "Landscaping, lawn care, pruning, and garden maintenance.",
+    keywords: [
+      "services",
+      "landscaping",
+      "lawn",
+      "mowing",
+      "pruning",
+      "trimming",
+      "garden care",
+      "maintenance",
+      "planting",
+      "soil",
+    ],
+  },
+  {
+    title: "Feedback",
+    href: "/feedback",
+    category: "Page",
+    description: "Share reviews, suggestions, or experience with us.",
+    keywords: ["feedback", "review", "rating", "testimonial", "suggestions"],
+  },
+  {
+    title: "Team",
+    href: "/team",
+    category: "Company",
+    description: "Meet the horticulturists and gardeners behind our work.",
+    keywords: ["team", "staff", "gardeners", "people", "experts", "crew"],
+  },
+  {
+    title: "Contact",
+    href: "/contact",
+    category: "Page",
+    description: "Get a quote, ask a question, or reach our support team.",
+    keywords: ["contact", "quote", "email", "phone", "address", "location", "support"],
+  },
+  {
+    title: "Career",
+    href: "/career",
+    category: "Company",
+    description: "Open roles and opportunities to join our gardening crew.",
+    keywords: ["career", "careers", "jobs", "hiring", "work", "apply", "positions"],
+  },
+  {
+    title: "Notice",
+    href: "/notice",
+    category: "Page",
+    description: "Announcements, seasonal updates, and important notices.",
+    keywords: ["notice", "notices", "news", "announcements", "updates", "alerts"],
+  },
+];
 
 const Header = () => {
   const [darkIcon, setDarkIcon] = useState(true);
@@ -15,30 +91,8 @@ const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
   const popupRef = useRef<HTMLDivElement>(null);
-
-  const SITE_PAGES = [
-  { title: "Home", href: "/", keywords: ["home", "main", "gardeners", "francisco"] },
-  { title: "About", href: "/about", keywords: ["about", "story", "mission", "who we are"] },
-  { title: "Services", href: "/services", keywords: ["services", "landscaping", "lawn", "mowing", "pruning", "garden"] },
-  { title: "Feedback", href: "/feedback", keywords: ["feedback", "review", "rating", "testimonial"] },
-  { title: "Team", href: "/team", keywords: ["team", "staff", "gardeners", "people", "crew"] },
-  { title: "Contact", href: "/contact", keywords: ["contact", "quote", "email", "phone", "address", "location"] },
-  { title: "Career", href: "/career", keywords: ["career", "jobs", "hiring", "work", "apply"] },
-  { title: "Notice", href: "/notice", keywords: ["notice", "news", "announcements", "updates"] },
-];
-
-
-const desktopSearchRef = useRef<HTMLDivElement>(null);
-  
-const searchResult = useMemo(() => {
-  const q = searchQuery.trim().toLowerCase;
-  if(!q) return [];
-  return SITE_PAGES.filter(
-    (item) => 
-      item.title.toLowerCase().include(q) || 
-       
-  )
-})
+  const desktopSearchRef = useRef<HTMLDivElement>(null);
+  const desktopInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("Theme");
@@ -61,11 +115,17 @@ const searchResult = useMemo(() => {
     };
 
     const handleClickOutside = (e: MouseEvent) => {
-      if (
-        popupRef.current &&
-        !popupRef.current.contains(e.target as Node)
-      ) {
+      const target = e.target as Node;
+
+      if (popupRef.current && !popupRef.current.contains(target)) {
         setShowMenuPopup(false);
+      }
+
+      if (
+        desktopSearchRef.current &&
+        !desktopSearchRef.current.contains(target)
+      ) {
+        setShowSearch(false);
       }
     };
 
@@ -77,6 +137,28 @@ const searchResult = useMemo(() => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  useEffect(() => {
+    if (showSearch && desktopInputRef.current) {
+      desktopInputRef.current.focus();
+    }
+  }, [showSearch]);
+
+  const trimmedQuery = searchQuery.trim().toLowerCase();
+
+  const matches = useMemo(() => {
+    if (!trimmedQuery) return [];
+
+    return SEARCH_ITEMS.filter((item) => {
+      const inTitle = item.title.toLowerCase().includes(trimmedQuery);
+      const inDesc = item.description.toLowerCase().includes(trimmedQuery);
+      const inCategory = item.category.toLowerCase().includes(trimmedQuery);
+      const inKeywords = item.keywords.some((kw) =>
+        kw.toLowerCase().includes(trimmedQuery)
+      );
+      return inTitle || inDesc || inCategory || inKeywords;
+    });
+  }, [trimmedQuery]);
 
   const triggerTheme = () => {
     if (document.body.classList.contains("dark")) {
@@ -90,11 +172,26 @@ const searchResult = useMemo(() => {
     }
   };
 
+  const navigateToResult = (href: string) => {
+    router.push(href);
+    setShowSearch(false);
+    setSearchQuery("");
+  };
+
   const handleSearch = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
 
-    if (searchQuery.trim() !== "") {
-      router.push(`/search?query=${encodeURIComponent(searchQuery)}`);
+    if (trimmedQuery === "") return;
+
+    // If there's an exact title match, jump straight there; otherwise go to /search
+    const exactMatch = matches.find(
+      (item) => item.title.toLowerCase() === trimmedQuery
+    );
+
+    if (exactMatch) {
+      navigateToResult(exactMatch.href);
+    } else {
+      router.push(`/search?query=${encodeURIComponent(searchQuery.trim())}`);
       setShowSearch(false);
       setSearchQuery("");
     }
@@ -112,24 +209,19 @@ const searchResult = useMemo(() => {
   return (
     <>
       <header className="sticky top-0 z-40 w-full bg-white shadow-sm border-b border-gray-100 transition-colors duration-300 overflow-visible">
-
         {/* Header Container */}
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-8 gap-2 h-20 overflow-visible">
+          {/* Logo */}
+          <Link href="/" className="flex items-center shrink-0 sm:pt-3">
+            <img
+              src="/logo/logo.png"
+              alt="Francisco Gardeners Logo"
+              className="h-12 w-36 sm:h-20 sm:w-48 object-contain block"
+            />
+          </Link>
 
-         {/* Logo */}
-<Link
-  href="/"
-  className="flex items-center shrink-0  sm:pt-3"
->
-  <img
-    src="/logo/logo.png"
-    alt="Francisco Gardeners Logo"
-    className="h-12 w-36 sm:h-20 sm:w-48 object-contain block"
-  />
-</Link>
           {/* Right Side */}
           <div className="flex items-center gap-2 sm:gap-4 lg:gap-5 shrink-0">
-
             {/* Desktop Navigation */}
             {!showSearch && (
               <nav className="hidden lg:flex items-center space-x-6">
@@ -165,31 +257,116 @@ const searchResult = useMemo(() => {
               </nav>
             )}
 
-            {/* Desktop Search */}
-            <form
-              onSubmit={handleSearch}
-              className={`hidden lg:flex items-center bg-gray-50 border border-gray-300 rounded-md shadow-sm transition-all duration-300 ease-in-out h-9 ${
-                showSearch
-                  ? "w-[300px] opacity-100 px-2.5"
-                  : "w-0 opacity-0 border-none p-0 overflow-hidden"
-              }`}
-            >
-              <button
-                type="button"
-                onClick={() => setShowSearch(false)}
-                className="text-gray-500 hover:text-gray-900 cursor-pointer mr-1.5 font-bold text-lg leading-none"
+            {/* Desktop Live Search */}
+            <div ref={desktopSearchRef} className="relative hidden lg:block">
+              <form
+                onSubmit={handleSearch}
+                className={`flex items-center bg-gray-50 border border-gray-300 rounded-md shadow-sm transition-all duration-300 ease-in-out h-9 ${
+                  showSearch
+                    ? "w-[320px] opacity-100 px-2.5"
+                    : "w-0 opacity-0 border-none p-0 overflow-hidden pointer-events-none"
+                }`}
               >
-                ‹
-              </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowSearch(false);
+                    setSearchQuery("");
+                  }}
+                  aria-label="Close search"
+                  className="text-gray-500 hover:text-gray-900 cursor-pointer mr-1.5 font-bold text-lg leading-none"
+                >
+                  ‹
+                </button>
 
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search..."
-                className="w-full border-none outline-none bg-transparent text-sm text-gray-800 placeholder:text-gray-400"
-              />
-            </form>
+                <input
+                  ref={desktopInputRef}
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search pages, services, notices..."
+                  className="w-full border-none outline-none bg-transparent text-sm text-gray-800 placeholder:text-gray-400"
+                />
+
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => setSearchQuery("")}
+                    aria-label="Clear search"
+                    className="text-gray-400 hover:text-gray-700 text-xs px-1 cursor-pointer"
+                  >
+                    ✕
+                  </button>
+                )}
+              </form>
+
+              {/* Desktop Live Results Dropdown */}
+              {showSearch && trimmedQuery.length > 0 && (
+                <div className="absolute right-0 mt-2 w-[360px] bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden z-50">
+                  <div className="px-3.5 py-2 bg-gray-50 border-b border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                    <span>
+                      {matches.length > 0
+                        ? `Found ${matches.length} ${
+                            matches.length === 1 ? "match" : "matches"
+                          } on site`
+                        : "No matches found on site"}
+                    </span>
+                    <span className="font-medium text-teal-900">
+                      "{searchQuery.trim()}"
+                    </span>
+                  </div>
+
+                  {matches.length > 0 ? (
+                    <ul className="max-h-72 overflow-y-auto divide-y divide-gray-100">
+                      {matches.map((item) => (
+                        <li key={item.href}>
+                          <button
+                            type="button"
+                            onClick={() => navigateToResult(item.href)}
+                            className="w-full text-left px-3.5 py-2.5 hover:bg-teal-50/70 transition-colors cursor-pointer block"
+                          >
+                            <div className="flex items-center justify-between gap-2">
+                              <span className="text-sm font-semibold text-gray-900">
+                                {item.title}
+                              </span>
+                              <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-teal-100 text-teal-900 shrink-0">
+                                {item.category}
+                              </span>
+                            </div>
+                            <p className="text-xs text-gray-500 mt-0.5 line-clamp-1">
+                              {item.description}
+                            </p>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="px-4 py-5 text-center">
+                      <p className="text-sm font-medium text-gray-700">
+                        Not found on this website
+                      </p>
+                      <p className="text-xs text-gray-500 mt-1">
+                        Try searching for Services, Team, Career, Notice, or
+                        Contact.
+                      </p>
+                    </div>
+                  )}
+
+                  <div className="px-3.5 py-2 bg-gray-50 border-t border-gray-100 flex justify-between items-center">
+                    <span className="text-[11px] text-gray-400">
+                      Press Enter for full search
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => handleSearch()}
+                      className="text-xs font-medium text-teal-900 hover:underline cursor-pointer"
+                    >
+                      Search all →
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
 
             {/* Search Icon */}
             {!showSearch && (
@@ -223,10 +400,7 @@ const searchResult = useMemo(() => {
             </button>
 
             {/* Mobile Menu */}
-            <div
-              className="relative lg:hidden shrink-0"
-              ref={popupRef}
-            >
+            <div className="relative lg:hidden shrink-0" ref={popupRef}>
               <button
                 onClick={() => {
                   setShowSearch(false);
@@ -236,15 +410,12 @@ const searchResult = useMemo(() => {
                 aria-label="Toggle navigation popup"
                 className="flex items-center gap-1.5 bg-teal-900 text-white text-xs sm:text-sm font-medium px-3 sm:px-3.5 py-2 rounded-md shadow-sm hover:bg-teal-800 transition-all cursor-pointer whitespace-nowrap"
               >
-                <span>
-                  {showMenuPopup ? "Close ✕" : "Menu ☰"}
-                </span>
+                <span>{showMenuPopup ? "Close ✕" : "Menu ☰"}</span>
               </button>
 
               {/* Floating Popup */}
               {showMenuPopup && (
                 <div className="absolute right-0 mt-2 w-60 bg-white rounded-xl shadow-xl border border-gray-200 p-3 z-50">
-
                   <div className="flex flex-col space-y-1">
                     {navLinks.map((link) => {
                       const isActive = pathname === link.href;
@@ -267,7 +438,6 @@ const searchResult = useMemo(() => {
                   </div>
 
                   <div className="border-t border-gray-200 my-2.5 pt-2.5 grid grid-cols-2 gap-2">
-
                     <Link
                       href="/career"
                       onClick={() => setShowMenuPopup(false)}
@@ -283,7 +453,6 @@ const searchResult = useMemo(() => {
                     >
                       Notice
                     </Link>
-
                   </div>
                 </div>
               )}
@@ -292,7 +461,7 @@ const searchResult = useMemo(() => {
         </div>
       </header>
 
-      {/* Mobile/Tablet Search Modal */}
+      {/* Mobile/Tablet Search Modal with Live Results */}
       {showSearch && (
         <div
           className="fixed inset-0 z-50 lg:hidden bg-black/50 backdrop-blur-xs flex items-start justify-center pt-20 px-4"
@@ -302,24 +471,23 @@ const searchResult = useMemo(() => {
             className="bg-white w-full max-w-md rounded-xl shadow-xl border border-gray-200 p-4"
             onClick={(e) => e.stopPropagation()}
           >
-
             <div className="flex items-center justify-between mb-3">
               <span className="text-sm font-semibold text-gray-700">
                 Search Site
               </span>
 
               <button
-                onClick={() => setShowSearch(false)}
+                onClick={() => {
+                  setShowSearch(false);
+                  setSearchQuery("");
+                }}
                 className="text-gray-400 hover:text-gray-700 text-xl leading-none cursor-pointer"
               >
                 ✕
               </button>
             </div>
 
-            <form
-              onSubmit={handleSearch}
-              className="flex items-center gap-2"
-            >
+            <form onSubmit={handleSearch} className="flex items-center gap-2">
               <input
                 type="text"
                 autoFocus
@@ -337,6 +505,48 @@ const searchResult = useMemo(() => {
               </button>
             </form>
 
+            {trimmedQuery.length > 0 && (
+              <div className="mt-3 border-t border-gray-100 pt-3">
+                <p className="text-xs text-gray-500 mb-2">
+                  {matches.length > 0
+                    ? `On this website (${matches.length}):`
+                    : `No matches found for "${searchQuery.trim()}"`}
+                </p>
+
+                {matches.length > 0 ? (
+                  <ul className="max-h-60 overflow-y-auto divide-y divide-gray-100 rounded-lg border border-gray-100">
+                    {matches.map((item) => (
+                      <li key={item.href}>
+                        <button
+                          type="button"
+                          onClick={() => navigateToResult(item.href)}
+                          className="w-full text-left px-3 py-2.5 hover:bg-teal-50/70 transition-colors cursor-pointer block"
+                        >
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="text-sm font-semibold text-gray-900">
+                              {item.title}
+                            </span>
+                            <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-teal-100 text-teal-900 shrink-0">
+                              {item.category}
+                            </span>
+                          </div>
+                          <p className="text-xs text-gray-500 mt-0.5">
+                            {item.description}
+                          </p>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <div className="rounded-lg bg-gray-50 p-3 text-xs text-gray-600">
+                    This term does not match any section in the current site
+                    index. Try searching <span className="font-medium">Services</span>,{" "}
+                    <span className="font-medium">Career</span>, or{" "}
+                    <span className="font-medium">Notice</span>.
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
       )}
