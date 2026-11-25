@@ -159,7 +159,7 @@ export default function Home() {
             <p className="text-sm text-gray-600 mt-1">Residential, HOA &amp; storefront properties</p>
           </div>
           <div>
-            <p className="text-2xl sm:text-3xl font-bold text-[#0D402B]">100% Organic</p>
+            <p className="text-2xl sm:text-3xl font-bold text-[#0D402B]"> Organic</p>
             <p className="text-sm text-gray-600 mt-1">Pet-safe soil care &amp; green-waste composting</p>
           </div>
           <div>
