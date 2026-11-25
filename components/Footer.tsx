@@ -171,7 +171,7 @@ const Footer = () => {
 
             <a href="tel:+977014548068" className={`flex items-center gap-2 border-2 rounded-lg px-7 py-3 w-full sm:w-auto `}>
               <img src="/icons/phone.svg" alt="phone" className="h-6 w-6" />
-              <span className="text-sm">+977-01-454xxxx</span>
+              <span className="text-sm">+1 56454xxxx</span>
             </a>
       
           {/* WHATSAPP */}
@@ -181,7 +181,7 @@ const Footer = () => {
             className={`flex items-center gap-2 border-2 rounded-lg px-6 py-3 w-full sm:w-auto `}
           >
             <img src="/icons/whatsapp.svg" alt="whatsapp" className="h-6 w-6" />
-            <span className="text-sm">+977 98520-2xxxx</span>
+            <span className="text-sm">+1 56520-2xxxx</span>
           </a>
         </div>
       </div>
