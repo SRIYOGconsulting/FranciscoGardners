@@ -98,9 +98,11 @@ const Header = () => {
     const savedTheme = localStorage.getItem("Theme");
 
     if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark");
       document.body.classList.add("dark");
       setDarkIcon(false);
     } else {
+      document.documentElement.classList.remove("dark");
       document.body.classList.remove("dark");
       setDarkIcon(true);
     }
@@ -161,11 +163,17 @@ const Header = () => {
   }, [trimmedQuery]);
 
   const triggerTheme = () => {
-    if (document.body.classList.contains("dark")) {
+    const isDark =
+      document.body.classList.contains("dark") ||
+      document.documentElement.classList.contains("dark");
+
+    if (isDark) {
+      document.documentElement.classList.remove("dark");
       document.body.classList.remove("dark");
       localStorage.setItem("Theme", "light");
       setDarkIcon(true);
     } else {
+      document.documentElement.classList.add("dark");
       document.body.classList.add("dark");
       localStorage.setItem("Theme", "dark");
       setDarkIcon(false);
@@ -183,7 +191,6 @@ const Header = () => {
 
     if (trimmedQuery === "") return;
 
-    // If there's an exact title match, jump straight there; otherwise go to /search
     const exactMatch = matches.find(
       (item) => item.title.toLowerCase() === trimmedQuery
     );
@@ -208,15 +215,15 @@ const Header = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full bg-white shadow-sm border-b border-gray-100 transition-colors duration-300 overflow-visible">
+      <header className="sticky top-0 z-40 w-full bg-white dark:bg-neutral-900 shadow-sm border-b border-gray-100 dark:border-neutral-800 transition-colors duration-300 overflow-visible">
         {/* Header Container */}
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-8 gap-2 h-20 overflow-visible">
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0 sm:pt-3">
             <img
-              src="/logo/logo.png"
+              src="/logo/logo2.png"
               alt="Francisco Gardeners Logo"
-              className="h-12 w-36 sm:h-20 sm:w-48 object-contain block"
+              className="h-12 w-36 sm:h-20 sm:w-48 object-contain block dark:brightness-110"
             />
           </Link>
 
@@ -234,8 +241,8 @@ const Header = () => {
                       href={link.href}
                       className={`text-[15px] font-medium transition-colors duration-200 ${
                         isActive
-                          ? "text-teal-900 font-semibold"
-                          : "text-gray-700 hover:text-teal-800"
+                          ? "text-teal-900 dark:text-emerald-400 font-semibold"
+                          : "text-gray-700 dark:text-gray-300 hover:text-teal-800 dark:hover:text-emerald-300"
                       }`}
                     >
                       {link.name}
@@ -244,13 +251,13 @@ const Header = () => {
                 })}
 
                 <Link href="/career">
-                  <button className="border cursor-pointer text-[14px] font-medium border-teal-900 text-teal-900 hover:text-white rounded px-3.5 py-1 hover:bg-teal-900 transition-all duration-200">
+                  <button className="border cursor-pointer text-[14px] font-medium border-teal-900 dark:border-emerald-400 text-teal-900 dark:text-emerald-300 hover:text-white rounded px-3.5 py-1 hover:bg-teal-900 dark:hover:bg-emerald-600 transition-all duration-200">
                     Career
                   </button>
                 </Link>
 
                 <Link href="/notice">
-                  <button className="bg-teal-900 cursor-pointer text-[14px] font-medium border border-teal-900 text-white px-3.5 py-1 rounded hover:bg-teal-800 transition-all duration-200">
+                  <button className="bg-teal-900 dark:bg-emerald-700 cursor-pointer text-[14px] font-medium border border-teal-900 dark:border-emerald-700 text-white px-3.5 py-1 rounded hover:bg-teal-800 dark:hover:bg-emerald-600 transition-all duration-200">
                     Notice
                   </button>
                 </Link>
@@ -261,7 +268,7 @@ const Header = () => {
             <div ref={desktopSearchRef} className="relative hidden lg:block">
               <form
                 onSubmit={handleSearch}
-                className={`flex items-center bg-gray-50 border border-gray-300 rounded-md shadow-sm transition-all duration-300 ease-in-out h-9 ${
+                className={`flex items-center bg-gray-50 dark:bg-neutral-800 border border-gray-300 dark:border-neutral-700 rounded-md shadow-sm transition-all duration-300 ease-in-out h-9 ${
                   showSearch
                     ? "w-[320px] opacity-100 px-2.5"
                     : "w-0 opacity-0 border-none p-0 overflow-hidden pointer-events-none"
@@ -274,7 +281,7 @@ const Header = () => {
                     setSearchQuery("");
                   }}
                   aria-label="Close search"
-                  className="text-gray-500 hover:text-gray-900 cursor-pointer mr-1.5 font-bold text-lg leading-none"
+                  className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white cursor-pointer mr-1.5 font-bold text-lg leading-none"
                 >
                   ‹
                 </button>
@@ -285,7 +292,7 @@ const Header = () => {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search pages, services, notices..."
-                  className="w-full border-none outline-none bg-transparent text-sm text-gray-800 placeholder:text-gray-400"
+                  className="w-full border-none outline-none bg-transparent text-sm text-gray-800 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500"
                 />
 
                 {searchQuery && (
@@ -293,7 +300,7 @@ const Header = () => {
                     type="button"
                     onClick={() => setSearchQuery("")}
                     aria-label="Clear search"
-                    className="text-gray-400 hover:text-gray-700 text-xs px-1 cursor-pointer"
+                    className="text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-xs px-1 cursor-pointer"
                   >
                     ✕
                   </button>
@@ -302,8 +309,8 @@ const Header = () => {
 
               {/* Desktop Live Results Dropdown */}
               {showSearch && trimmedQuery.length > 0 && (
-                <div className="absolute right-0 mt-2 w-[360px] bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden z-50">
-                  <div className="px-3.5 py-2 bg-gray-50 border-b border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                <div className="absolute right-0 mt-2 w-[360px] bg-white dark:bg-neutral-900 rounded-xl shadow-xl border border-gray-200 dark:border-neutral-700 overflow-hidden z-50">
+                  <div className="px-3.5 py-2 bg-gray-50 dark:bg-neutral-800 border-b border-gray-100 dark:border-neutral-700 flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
                     <span>
                       {matches.length > 0
                         ? `Found ${matches.length} ${
@@ -311,29 +318,29 @@ const Header = () => {
                           } on site`
                         : "No matches found on site"}
                     </span>
-                    <span className="font-medium text-teal-900">
+                    <span className="font-medium text-teal-900 dark:text-emerald-400">
                       "{searchQuery.trim()}"
                     </span>
                   </div>
 
                   {matches.length > 0 ? (
-                    <ul className="max-h-72 overflow-y-auto divide-y divide-gray-100">
+                    <ul className="max-h-72 overflow-y-auto divide-y divide-gray-100 dark:divide-neutral-800">
                       {matches.map((item) => (
                         <li key={item.href}>
                           <button
                             type="button"
                             onClick={() => navigateToResult(item.href)}
-                            className="w-full text-left px-3.5 py-2.5 hover:bg-teal-50/70 transition-colors cursor-pointer block"
+                            className="w-full text-left px-3.5 py-2.5 hover:bg-teal-50/70 dark:hover:bg-neutral-800 transition-colors cursor-pointer block"
                           >
                             <div className="flex items-center justify-between gap-2">
-                              <span className="text-sm font-semibold text-gray-900">
+                              <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">
                                 {item.title}
                               </span>
-                              <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-teal-100 text-teal-900 shrink-0">
+                              <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-teal-100 dark:bg-emerald-950 text-teal-900 dark:text-emerald-300 shrink-0">
                                 {item.category}
                               </span>
                             </div>
-                            <p className="text-xs text-gray-500 mt-0.5 line-clamp-1">
+                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">
                               {item.description}
                             </p>
                           </button>
@@ -342,24 +349,24 @@ const Header = () => {
                     </ul>
                   ) : (
                     <div className="px-4 py-5 text-center">
-                      <p className="text-sm font-medium text-gray-700">
+                      <p className="text-sm font-medium text-gray-700 dark:text-gray-200">
                         Not found on this website
                       </p>
-                      <p className="text-xs text-gray-500 mt-1">
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                         Try searching for Services, Team, Career, Notice, or
                         Contact.
                       </p>
                     </div>
                   )}
 
-                  <div className="px-3.5 py-2 bg-gray-50 border-t border-gray-100 flex justify-between items-center">
+                  <div className="px-3.5 py-2 bg-gray-50 dark:bg-neutral-800 border-t border-gray-100 dark:border-neutral-700 flex justify-between items-center">
                     <span className="text-[11px] text-gray-400">
                       Press Enter for full search
                     </span>
                     <button
                       type="button"
                       onClick={() => handleSearch()}
-                      className="text-xs font-medium text-teal-900 hover:underline cursor-pointer"
+                      className="text-xs font-medium text-teal-900 dark:text-emerald-400 hover:underline cursor-pointer"
                     >
                       Search all →
                     </button>
@@ -375,13 +382,13 @@ const Header = () => {
                   setShowMenuPopup(false);
                   setShowSearch(true);
                 }}
-                className="p-2 rounded-full hover:bg-gray-100 transition-colors cursor-pointer shrink-0"
+                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors cursor-pointer shrink-0"
                 aria-label="Open search"
               >
                 <img
                   alt="search icon"
                   src="/icons/search.svg"
-                  className="w-[18px] h-[18px] block"
+                  className="w-[18px] h-[18px] block dark:invert"
                 />
               </button>
             )}
@@ -408,14 +415,14 @@ const Header = () => {
                 }}
                 aria-expanded={showMenuPopup}
                 aria-label="Toggle navigation popup"
-                className="flex items-center gap-1.5 bg-teal-900 text-white text-xs sm:text-sm font-medium px-3 sm:px-3.5 py-2 rounded-md shadow-sm hover:bg-teal-800 transition-all cursor-pointer whitespace-nowrap"
+                className="flex items-center gap-1.5 bg-teal-900 dark:bg-emerald-700 text-white text-xs sm:text-sm font-medium px-3 sm:px-3.5 py-2 rounded-md shadow-sm hover:bg-teal-800 dark:hover:bg-emerald-600 transition-all cursor-pointer whitespace-nowrap"
               >
                 <span>{showMenuPopup ? "Close ✕" : "Menu ☰"}</span>
               </button>
 
               {/* Floating Popup */}
               {showMenuPopup && (
-                <div className="absolute right-0 mt-2 w-60 bg-white rounded-xl shadow-xl border border-gray-200 p-3 z-50">
+                <div className="absolute right-0 mt-2 w-60 bg-white dark:bg-neutral-900 rounded-xl shadow-xl border border-gray-200 dark:border-neutral-700 p-3 z-50">
                   <div className="flex flex-col space-y-1">
                     {navLinks.map((link) => {
                       const isActive = pathname === link.href;
@@ -427,8 +434,8 @@ const Header = () => {
                           onClick={() => setShowMenuPopup(false)}
                           className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                             isActive
-                              ? "bg-teal-50 text-teal-900 font-semibold"
-                              : "text-gray-700 hover:bg-gray-100"
+                              ? "bg-teal-50 dark:bg-emerald-950 text-teal-900 dark:text-emerald-300 font-semibold"
+                              : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-neutral-800"
                           }`}
                         >
                           {link.name}
@@ -437,11 +444,11 @@ const Header = () => {
                     })}
                   </div>
 
-                  <div className="border-t border-gray-200 my-2.5 pt-2.5 grid grid-cols-2 gap-2">
+                  <div className="border-t border-gray-200 dark:border-neutral-700 my-2.5 pt-2.5 grid grid-cols-2 gap-2">
                     <Link
                       href="/career"
                       onClick={() => setShowMenuPopup(false)}
-                      className="text-center border border-teal-900 text-teal-900 hover:bg-teal-900 hover:text-white text-xs font-medium py-1.5 rounded-md transition-colors"
+                      className="text-center border border-teal-900 dark:border-emerald-400 text-teal-900 dark:text-emerald-300 hover:bg-teal-900 dark:hover:bg-emerald-600 hover:text-white text-xs font-medium py-1.5 rounded-md transition-colors"
                     >
                       Career
                     </Link>
@@ -449,7 +456,7 @@ const Header = () => {
                     <Link
                       href="/notice"
                       onClick={() => setShowMenuPopup(false)}
-                      className="text-center bg-teal-900 text-white hover:bg-teal-800 text-xs font-medium py-1.5 rounded-md transition-colors"
+                      className="text-center bg-teal-900 dark:bg-emerald-700 text-white hover:bg-teal-800 dark:hover:bg-emerald-600 text-xs font-medium py-1.5 rounded-md transition-colors"
                     >
                       Notice
                     </Link>
@@ -468,11 +475,11 @@ const Header = () => {
           onClick={() => setShowSearch(false)}
         >
           <div
-            className="bg-white w-full max-w-md rounded-xl shadow-xl border border-gray-200 p-4"
+            className="bg-white dark:bg-neutral-900 w-full max-w-md rounded-xl shadow-xl border border-gray-200 dark:border-neutral-700 p-4"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-3">
-              <span className="text-sm font-semibold text-gray-700">
+              <span className="text-sm font-semibold text-gray-700 dark:text-gray-200">
                 Search Site
               </span>
 
@@ -481,7 +488,7 @@ const Header = () => {
                   setShowSearch(false);
                   setSearchQuery("");
                 }}
-                className="text-gray-400 hover:text-gray-700 text-xl leading-none cursor-pointer"
+                className="text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-xl leading-none cursor-pointer"
               >
                 ✕
               </button>
@@ -494,43 +501,43 @@ const Header = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Type what you're looking for..."
-                className="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 bg-gray-50 text-gray-900 focus:outline-none focus:border-teal-900"
+                className="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 dark:border-neutral-700 bg-gray-50 dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-teal-900 dark:focus:border-emerald-400"
               />
 
               <button
                 type="submit"
-                className="bg-teal-900 hover:bg-teal-800 text-white text-sm font-medium px-4 py-2 rounded-lg cursor-pointer shrink-0"
+                className="bg-teal-900 dark:bg-emerald-700 hover:bg-teal-800 dark:hover:bg-emerald-600 text-white text-sm font-medium px-4 py-2 rounded-lg cursor-pointer shrink-0"
               >
                 Search
               </button>
             </form>
 
             {trimmedQuery.length > 0 && (
-              <div className="mt-3 border-t border-gray-100 pt-3">
-                <p className="text-xs text-gray-500 mb-2">
+              <div className="mt-3 border-t border-gray-100 dark:border-neutral-800 pt-3">
+                <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
                   {matches.length > 0
                     ? `On this website (${matches.length}):`
                     : `No matches found for "${searchQuery.trim()}"`}
                 </p>
 
                 {matches.length > 0 ? (
-                  <ul className="max-h-60 overflow-y-auto divide-y divide-gray-100 rounded-lg border border-gray-100">
+                  <ul className="max-h-60 overflow-y-auto divide-y divide-gray-100 dark:divide-neutral-800 rounded-lg border border-gray-100 dark:border-neutral-800">
                     {matches.map((item) => (
                       <li key={item.href}>
                         <button
                           type="button"
                           onClick={() => navigateToResult(item.href)}
-                          className="w-full text-left px-3 py-2.5 hover:bg-teal-50/70 transition-colors cursor-pointer block"
+                          className="w-full text-left px-3 py-2.5 hover:bg-teal-50/70 dark:hover:bg-neutral-800 transition-colors cursor-pointer block"
                         >
                           <div className="flex items-center justify-between gap-2">
-                            <span className="text-sm font-semibold text-gray-900">
+                            <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">
                               {item.title}
                             </span>
-                            <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-teal-100 text-teal-900 shrink-0">
+                            <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-teal-100 dark:bg-emerald-950 text-teal-900 dark:text-emerald-300 shrink-0">
                               {item.category}
                             </span>
                           </div>
-                          <p className="text-xs text-gray-500 mt-0.5">
+                          <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
                             {item.description}
                           </p>
                         </button>
@@ -538,7 +545,7 @@ const Header = () => {
                     ))}
                   </ul>
                 ) : (
-                  <div className="rounded-lg bg-gray-50 p-3 text-xs text-gray-600">
+                  <div className="rounded-lg bg-gray-50 dark:bg-neutral-800 p-3 text-xs text-gray-600 dark:text-gray-300">
                     This term does not match any section in the current site
                     index. Try searching <span className="font-medium">Services</span>,{" "}
                     <span className="font-medium">Career</span>, or{" "}
