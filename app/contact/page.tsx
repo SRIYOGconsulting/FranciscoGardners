@@ -28,24 +28,26 @@ export default function Contact() {
         alert('Thank you for reaching out to Francisco Gardeners! Our team will get back to you shortly.');
     };
 
+    // Three employees taken directly from teamMembers:
+    // James Walker (/team/1 (1).png), Jacob Collins (/team/5(1).png), Benjamin Stewart (/team/6(1).png)
     const teamMembers = [
         {
-            name: 'Carlos',
-            designation: 'Lead Landscape Designer',
-            img: '/contact/1.png',
-            email: 'carlos@franciscogardeners.com'
+            name: 'James Walker',
+            designation: 'Deep Cleaning Specialist',
+            img: '/team/1 (1).png',
+            email: 'james@franciscogardeners.com'
         },
         {
-            name: 'Elena',
-            designation: 'Client & Scheduling Coordinator',
-            img: '/contact/2.png',
-            email: 'elena@franciscogardeners.com'
+            name: 'Jacob Collins',
+            designation: 'Lawn Care Specialist',
+            img: '/team/5(1).png',
+            email: 'jacob@franciscogardeners.com'
         },
         {
-            name: 'Marcus',
-            designation: 'Head Horticulturist & Arborist',
-            img: '/contact/3.png',
-            email: 'marcus@franciscogardeners.com'
+            name: 'Benjamin Stewart',
+            designation: 'Tree Cutting Technician',
+            img: '/team/6(1).png',
+            email: 'benjamin@franciscogardeners.com'
         },
     ];
 
