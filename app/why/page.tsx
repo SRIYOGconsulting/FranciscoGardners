@@ -10,12 +10,12 @@ export default function WhyUs () {
                 {/* SECTION 1 */}
                 <div className="w-full grid md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <h1 className="text-3xl md:text-4xl font-semibold leading-snug text-[#0D402B]">
-                            We Make Transforming Outdoor Spaces Simple
-                        </h1>
-                        <p className="text-gray-700 leading-relaxed text-lg">
-                            At Francisco Gardeners, we make beautiful, healthy green spaces effortless for San Francisco property owners. From routine lawn maintenance and deep yard cleanups to custom landscaping, we handle every detail so you can relax and enjoy your garden without the hassle.
-                        </p>
+                      <h1 className="text-3xl md:text-4xl font-semibold leading-snug text-[#0D402B]">
+            We Make Transforming Outdoor Spaces Simple
+        </h1>
+        <p className="text-gray-700 leading-relaxed text-lg">
+            Upgrading your yard shouldn’t feel overwhelming—at Francisco Gardeners, we take the guesswork and heavy lifting out of outdoor care by handling everything from initial garden design and drought-tolerant planting to seasonal cleanups and reliable weekly maintenance tailored to San Francisco’s unique microclimates, so you can simply step outside and enjoy a thriving green space without the hassle.
+        </p>
                     </div>
 
                     <Image 
