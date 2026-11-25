@@ -219,11 +219,11 @@ const Header = () => {
         {/* Header Container */}
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-8 gap-2 h-20 overflow-visible">
           {/* Logo */}
-          <Link href="/" className="flex items-center shrink-0 sm:pt-3">
+          <Link href="/" className="flex items-center self-center shrink-0">
             <img
               src="/logo/logo2.png"
               alt="Francisco Gardeners Logo"
-              className="h-12 w-36 sm:h-20 sm:w-48 object-contain block dark:brightness-110"
+              className="h-12 w-36 sm:h-14 sm:w-48 object-contain block dark:brightness-110"
             />
           </Link>
 
