@@ -8,14 +8,14 @@ export default function WhyUs () {
             <div className="max-w-7xl mx-auto px-4 md:px-8 pt-8 mb-6 flex flex-col gap-20 items-center justify-center pb-7">
 
                 {/* SECTION 1 */}
-                <div className="w-full grid md:grid-cols-2 gap-12 items-center">
+                <div className="w-full grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
                     <div className="space-y-6">
-                      <h1 className="text-3xl md:text-4xl font-semibold leading-snug text-[#0D402B]">
-            We Make Transforming Outdoor Spaces Simple
-        </h1>
-        <p className="text-gray-700 leading-relaxed text-lg">
-            Upgrading your yard shouldn’t feel overwhelming—at Francisco Gardeners, we take the guesswork and heavy lifting out of outdoor care by handling everything from initial garden design and drought-tolerant planting to seasonal cleanups and reliable weekly maintenance tailored to San Francisco’s unique microclimates, so you can simply step outside and enjoy a thriving green space without the hassle.
-        </p>
+                        <h1 className="text-3xl md:text-4xl font-semibold leading-snug text-[#0D402B]">
+                            We Make Transforming Outdoor Spaces Simple
+                        </h1>
+                        <p className="text-gray-700 leading-relaxed text-lg">
+                            Upgrading your yard shouldn’t feel overwhelming—at Francisco Gardeners, we take the guesswork and heavy lifting out of outdoor care by handling everything from initial garden design and drought-tolerant planting to seasonal cleanups and reliable weekly maintenance tailored to San Francisco’s unique microclimates, so you can simply step outside and enjoy a thriving green space without the hassle.
+                        </p>
                     </div>
 
                     <Image 
@@ -28,7 +28,7 @@ export default function WhyUs () {
                 </div>
 
                 {/* SECTION 2 */}
-                <div className="w-full grid md:grid-cols-2 gap-12 items-center md:[direction:rtl]">
+                <div className="w-full grid md:grid-cols-2 gap-12 lg:gap-20 items-center md:[direction:rtl]">
                     <div className="space-y-6 text-left [direction:ltr]">
                         <h1 className="text-3xl md:text-4xl font-semibold leading-snug text-[#0D402B]">
                             Licensed Specialists, Comprehensive Garden Care
@@ -48,7 +48,7 @@ export default function WhyUs () {
                 </div>
 
                 {/* SECTION 3 */}
-                <div className="w-full grid md:grid-cols-2 gap-12 items-center">
+                <div className="w-full grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
                     <div className="space-y-6">
                         <h1 className="text-3xl md:text-4xl font-semibold leading-snug text-[#0D402B]">
                             Eco-Friendly & Smart Water Solutions
@@ -68,7 +68,7 @@ export default function WhyUs () {
                 </div>
 
                 {/* SECTION 4 */}
-                <div className="w-full grid md:grid-cols-2 gap-12 items-center md:[direction:rtl]">
+                <div className="w-full grid md:grid-cols-2 gap-12 lg:gap-20 items-center md:[direction:rtl]">
                     <div className="space-y-6 text-left [direction:ltr]">
                         <h1 className="text-3xl md:text-4xl font-semibold leading-snug text-[#0D402B]">
                             Trusted, Reliable & Seamless Service
