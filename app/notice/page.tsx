@@ -14,124 +14,98 @@ export default function Notice() {
     const [notices] = useState([
         {
             id: 1,
-            title: "New Banking Training Batch Starting Soon",
-            date: "2024-01-15",
-            category: "Training",
-            content: "Registration is now open for our upcoming banking training batch starting February 1st. Limited seats available for retail banking and risk management modules.",
+            title: "Spring Garden Membership & Plot Registration Open",
+            date: "2026-03-01",
+            category: "Membership",
+            content: "Registration is now open for our upcoming spring gardening season. Limited raised beds and community plots are available for new members in San Francisco.",
             important: true
         },
         {
             id: 2,
-            title: "Advanced Digital Banking Workshop",
-            date: "2024-01-12",
+            title: "Organic Soil & Composting Workshop",
+            date: "2026-02-24",
             category: "Workshop",
-            content: "Join our specialized workshop on digital banking transformation, covering fintech integration, mobile banking, and cybersecurity best practices for banking professionals.",
+            content: "Join our master gardeners for a hands-on workshop covering Bay Area microclimates, organic soil enrichment, and sustainable backyard composting.",
             important: false
         },
         {
             id: 3,
-            title: "Holiday Schedule - Training Center Closed",
-            date: "2024-01-08",
-            category: "Holiday",
-            content: "Our training center will remain closed on January 26th for Republic Day celebrations. All scheduled sessions will resume on January 27th.",
+            title: "Garden Maintenance & Nursery Closure",
+            date: "2026-02-18",
+            category: "Closure",
+            content: "Francisco Gardens and our on-site plant nursery will remain closed on February 22nd for seasonal irrigation maintenance and pathway resurfacing.",
             important: true
         },
         {
             id: 4,
-            title: "Banking Certification Exam Dates Announced",
-            date: "2024-01-05",
-            category: "Examination",
-            content: "The certification exams for banking professionals will be conducted on January 30th. Last date for registration is January 25th.",
-            important: false
+            title: "Annual Heirloom Seed Swap & Plant Sale",
+            date: "2026-02-12",
+            category: "Events",
+            content: "Bring your saved seeds and cuttings to trade with fellow local gardeners. Native California perennials, herbs, and vegetable starts will also be available.",
+            important: true
         },
         {
             id: 5,
-            title: "Industry Expert Guest Lecture Series",
-            date: "2024-01-03",
+            title: "Urban Beekeeping & Pollinator Walk",
+            date: "2026-02-05",
             category: "Events",
-            content: "We are hosting a series of guest lectures by senior banking executives. Topics include modern banking operations, compliance frameworks, and career growth in banking sector.",
+            content: "Explore our native pollinator beds with local apiarists. Learn how to attract bees, butterflies, and hummingbirds to your San Francisco garden.",
             important: false
         },
         {
             id: 6,
-            title: "Corporate Training Program for Banks",
-            date: "2024-01-02",
-            category: "Corporate",
-            content: "Customized corporate training programs now available for banking institutions. Tailored modules for branch staff, relationship managers, and operational teams.",
+            title: "Community Volunteer Workday & Mulching Drive",
+            date: "2026-01-28",
+            category: "Volunteer",
+            content: "Help us refresh the communal pathways and orchard beds this Saturday morning. Gloves, tools, and organic refreshments will be provided for all volunteers.",
             important: false
         },
         {
             id: 7,
-            title: "Placement Drive for Certified Candidates",
-            date: "2024-01-01",
-            category: "Placement",
-            content: "Leading banks will be conducting campus placements for our certified candidates on January 20th. Prepare your resumes and attend the pre-placement briefing.",
-            important: true
+            title: "Drought-Tolerant Landscaping Consultation Booking",
+            date: "2026-01-20",
+            category: "Services",
+            content: "Book a 1-on-1 consultation with our landscape design team to transition your yard into a water-wise, native California coastal garden.",
+            important: false
         },
-
-        // ADDITIONAL ITEMS (from origin/main)
         {
             id: 8,
-            title: "Placement Drive for Certified Candidates",
-            date: "2024-01-01",
-            category: "Placement",
-            content: "Leading banks will be conducting campus placements for certified candidates.",
-            important: true
+            title: "Winter Fruit Tree Pruning Clinic",
+            date: "2026-01-14",
+            category: "Workshop",
+            content: "Learn proper dormant pruning techniques for apples, figs, stone fruits, and citrus trees suited to Northern California climates.",
+            important: false
         },
         {
             id: 9,
-            title: "Placement Drive for Certified Candidates",
-            date: "2024-01-01",
-            category: "Placement",
-            content: "Leading banks will be conducting campus placements for certified candidates.",
+            title: "Greenhouse Seedling Reservations Now Live",
+            date: "2026-01-09",
+            category: "Services",
+            content: "Pre-order organically grown tomato, pepper, and leafy green starts from the Francisco Gardens greenhouse for early spring pickup.",
             important: true
         },
         {
             id: 10,
-            title: "Placement Drive for Certified Candidates",
-            date: "2024-01-01",
-            category: "Placement",
-            content: "Leading banks will be conducting campus placements for certified candidates.",
-            important: true
+            title: "School & Youth Garden Field Trip Applications",
+            date: "2026-01-05",
+            category: "Volunteer",
+            content: "We are now accepting spring field trip requests from San Francisco elementary and middle schools for guided ecology and gardening tours.",
+            important: false
         },
         {
             id: 11,
-            title: "Placement Drive for Certified Candidates",
-            date: "2024-01-01",
-            category: "Placement",
-            content: "Leading banks will be conducting campus placements for certified candidates.",
-            important: true
+            title: "Rainwater Harvesting & Drip Irrigation Seminar",
+            date: "2025-12-18",
+            category: "Workshop",
+            content: "Discover practical ways to install rain barrels and smart drip irrigation systems to conserve water year-round.",
+            important: false
         },
         {
             id: 12,
-            title: "Placement Drive for Certified Candidates",
-            date: "2024-01-01",
-            category: "Placement",
-            content: "Leading banks will be conducting campus placements for certified candidates.",
-            important: true
-        },
-        {
-            id: 13,
-            title: "Placement Drive for Certified Candidates",
-            date: "2024-01-01",
-            category: "Placement",
-            content: "Leading banks will be conducting campus placements for certified candidates.",
-            important: true
-        },
-        {
-            id: 14,
-            title: "Placement Drive for Certified Candidates",
-            date: "2024-01-01",
-            category: "Placement",
-            content: "Leading banks will be conducting campus placements for certified candidates.",
-            important: true
-        },
-        {
-            id: 15,
-            title: "Placement Drive for Certified Candidates",
-            date: "2024-01-01",
-            category: "Placement",
-            content: "Leading banks will be conducting campus placements for certified candidates.",
+            title: "Seasonal Harvest Dinner in the Garden",
+            date: "2025-12-10",
+            category: "Events",
+            content: "Celebrate the winter harvest with a farm-to-table community gathering featuring produce grown right here at Francisco Gardens.",
             important: true
         }
     ]);
@@ -139,7 +113,7 @@ export default function Notice() {
     const [selectedCategory, setSelectedCategory] = useState("All");
     const [searchTerm, setSearchTerm] = useState("");
 
-    const categories = ["All", "Training", "Workshop", "Examination", "Placement", "Corporate", "Events", "Holiday"];
+    const categories = ["All", "Membership", "Workshop", "Events", "Volunteer", "Services", "Closure"];
 
     // Filtering logic
     const filteredNotices = notices.filter(notice => {
@@ -173,14 +147,14 @@ export default function Notice() {
                     <div className="flex-1">
                         <input
                             type="text"
-                            placeholder="Search notices..."
-                            className="w-full px-4 py-2 border border-gray-300  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Search garden notices, workshops & events..."
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#074842]"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
                     </div>
 
-                    {/* Category horizontal scroll (fixed version) */}
+                    {/* Category horizontal scroll */}
                     <div className="relative w-full md:w-auto">
                         <div className="
                             flex gap-2 overflow-x-auto pb-3
@@ -230,11 +204,11 @@ export default function Notice() {
 
                                     <div className="flex items-center gap-4">
                                         <a href="#">
-                                        <button className='cursor-pointer hover:bg-teal-700 hover:text-white text-[13px] border px-2 py-px rounded-md border-gray-800'>
-                                            Browse More
-                                        </button>
+                                            <button className='cursor-pointer hover:bg-[#074842] hover:text-white text-[13px] border px-2 py-px rounded-md border-gray-800 transition-colors'>
+                                                Read Details
+                                            </button>
                                         </a>
-                                        <span className="bg-green-100 text-black text-sm px-3 py-1 rounded-full">
+                                        <span className="bg-green-100 text-[#074842] font-medium text-sm px-3 py-1 rounded-full">
                                             {notice.category}
                                         </span>
 
@@ -244,7 +218,7 @@ export default function Notice() {
                                     </div>
                                 </div>
 
-                                <p className="leading-relaxed">
+                                <p className="leading-relaxed text-gray-700">
                                     {notice.content}
                                 </p>
                             </div>
@@ -256,7 +230,7 @@ export default function Notice() {
                 {filteredNotices.length !== 0 && (
                     <div className="flex items-center justify-center mt-8">
                         <Pagination
-                            color="bg-red-500"
+                            color="bg-[#074842]"
                             currentPage={currentPage}
                             onPageChange={setCurrentPage}
                             totalPages={totalPages}
@@ -268,8 +242,8 @@ export default function Notice() {
                 {filteredNotices.length === 0 && (
                     <div className="text-center py-12">
                         <div className="text-gray-400 text-6xl mb-4">📄</div>
-                        <h3 className="text-xl font-semibold text-gray-600 mb-2">No notices found</h3>
-                        <p className="text-gray-500">Try adjusting your search or filter criteria</p>
+                        <h3 className="text-xl font-semibold text-gray-600 mb-2">No garden notices found</h3>
+                        <p className="text-gray-500">Try adjusting your search or category filter</p>
                     </div>
                 )}
             </div>
