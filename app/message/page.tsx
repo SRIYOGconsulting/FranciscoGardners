@@ -90,21 +90,21 @@ export default function MessagePage() {
         {/* CORE PROMISES GRID */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           <div className="p-6 rounded-2xl border border-emerald-100 bg-white shadow-sm">
-            <h4 className="text-lg font-bold text-[#0D402B] mb-2">🌿 Eco-Friendly Standards</h4>
+            <h4 className="text-lg font-bold text-[#0D402B] mb-2"> Eco-Friendly Standards</h4>
             <p className="text-sm text-gray-600 leading-relaxed">
               We prioritize organic fertilizers, zero-emission tools, and drought-tolerant plants to keep our city sustainable.
             </p>
           </div>
 
           <div className="p-6 rounded-2xl border border-emerald-100 bg-white shadow-sm">
-            <h4 className="text-lg font-bold text-[#0D402B] mb-2">⭐ Uncompromising Quality</h4>
+            <h4 className="text-lg font-bold text-[#0D402B] mb-2"> Uncompromising Quality</h4>
             <p className="text-sm text-gray-600 leading-relaxed">
               Every detail is meticulously crafted—from lawn precision to healthy soil cultivation and tree pruning.
             </p>
           </div>
 
           <div className="p-6 rounded-2xl border border-emerald-100 bg-white shadow-sm">
-            <h4 className="text-lg font-bold text-[#0D402B] mb-2">🤝 Trust & Transparency</h4>
+            <h4 className="text-lg font-bold text-[#0D402B] mb-2"> Trust & Transparency</h4>
             <p className="text-sm text-gray-600 leading-relaxed">
               Clear quotes, background-checked specialists, and consistent service schedules you can always count on.
             </p>
